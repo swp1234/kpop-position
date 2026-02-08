@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "Tes Posisi K-POP - Posisi Idol Apa Milik Anda?",
+    "description": "Temukan posisi K-POP Anda melalui 12 pertanyaan! Main Vocal, Leader, Rapper, Dancer, Visual, Maknae, atau All-Rounder? Temukan idol yang cocok dan lainnya!"
+  },
+  "intro": {
+    "title": "Tes Posisi<br>K-POP",
+    "subtitle": "Posisi apa yang akan Anda miliki dalam grup K-POP?<br>Temukan posisi idol Anda melalui 12 pertanyaan yang menyenangkan!",
+    "meta1": "12 Pertanyaan",
+    "meta2": "Sekitar 2 menit",
+    "meta3": "7 Posisi",
+    "startBtn": "Mulai Tes",
+    "participantsText": "orang telah berpartisipasi!"
+  },
+  "loading": {
+    "text": "Menganalisis data posisi..."
+  },
+  "result": {
+    "analysis": "📋 Analisis Posisi",
+    "traits": "🔥 Ciri Utama",
+    "idols": "🌟 Idol dengan Posisi Sama",
+    "groupMatch": "🎵 Posisi Anda dalam Grup K-POP",
+    "spectrum": "📊 Kompatibilitas Posisi",
+    "realLife": "💼 Aplikasi Kehidupan Nyata",
+    "bestMatch": "💞 Posisi Pasangan Sempurna",
+    "tip": "💡 Saran",
+    "premiumBtn": "🔓 Analisis Mendalam AI (Bagan Kompatibilitas, Tips Pelatihan, Jalur Karir)",
+    "shareBtn": "📤 Bagikan Hasil",
+    "saveImageBtn": "📸 Simpan Gambar",
+    "retryBtn": "🔄 Coba Lagi",
+    "recommendations": "Coba Juga",
+    "compatibilityChart": "💞 Bagan Kompatibilitas Posisi",
+    "trainingTips": "🎯 Tips Pelatihan",
+    "careerPaths": "💼 Karir yang Direkomendasikan",
+    "weeklyRoutine": "📅 Rutinitas Pelatihan Mingguan",
+    "idolAdvice": "Saran Idol Senior",
+    "adMessage": "Lihat Hasil",
+    "resultSharedMessage": "Hasil disalin!"
+  },
+  "premium": {
+    "perfectMatch": "Pasangan Sempurna",
+    "good": "Baik",
+    "normal": "Normal",
+    "needsEffort": "Perlu Usaha"
+  }
+}

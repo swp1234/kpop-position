@@ -332,28 +332,31 @@ function generateShareImage() {
     const ctx = canvas.getContext('2d');
     const w = 1080, h = 1080;
 
-    // Background gradient
+    canvas.width = w;
+    canvas.height = h;
+
+    // Background gradient (K-POP style - vibrant)
     const grad = ctx.createLinearGradient(0, 0, w, h);
-    grad.addColorStop(0, resultData.colorEnd);
+    grad.addColorStop(0, resultData.colorEnd || resultData.color);
     grad.addColorStop(1, resultData.color);
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
-    // Decorative stars
-    ctx.globalAlpha = 0.08;
-    for (let i = 0; i < 30; i++) {
+    // Decorative stars (twinkling effect)
+    ctx.globalAlpha = 0.1;
+    for (let i = 0; i < 40; i++) {
         const x = Math.random() * w;
         const y = Math.random() * h;
-        const size = 2 + Math.random() * 4;
+        const size = 1 + Math.random() * 5;
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI * 2);
         ctx.fillStyle = '#fff';
         ctx.fill();
     }
 
-    // Spotlight effect
-    ctx.globalAlpha = 0.06;
-    const spotGrad = ctx.createRadialGradient(w/2, 300, 0, w/2, 300, 400);
+    // Spotlight effect (stage light)
+    ctx.globalAlpha = 0.08;
+    const spotGrad = ctx.createRadialGradient(w/2, 200, 0, w/2, 200, 500);
     spotGrad.addColorStop(0, '#fff');
     spotGrad.addColorStop(1, 'transparent');
     ctx.fillStyle = spotGrad;
@@ -361,63 +364,66 @@ function generateShareImage() {
     ctx.globalAlpha = 1;
 
     // Top label
-    ctx.fillStyle = 'rgba(255,255,255,0.7)';
-    ctx.font = '600 32px -apple-system, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.font = '600 36px -apple-system, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('나의 K-POP 포지션은', w / 2, 140);
+    ctx.fillText('나의 K-POP 포지션은', w / 2, 120);
 
-    // Emoji
-    ctx.font = '120px sans-serif';
-    ctx.fillText(resultData.emoji, w / 2, 310);
+    // Emoji (stage presence)
+    ctx.font = '130px sans-serif';
+    ctx.fillText(resultData.emoji, w / 2, 300);
 
-    // Title
+    // Title (position name - bold)
     ctx.fillStyle = '#fff';
-    ctx.font = '900 72px -apple-system, sans-serif';
-    ctx.fillText(resultData.title, w / 2, 430);
+    ctx.font = '900 80px -apple-system, sans-serif';
+    ctx.fillText(resultData.title, w / 2, 420);
 
-    // English title
-    ctx.fillStyle = 'rgba(255,255,255,0.6)';
-    ctx.font = '400 30px -apple-system, sans-serif';
+    // English title (subtitle)
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.font = '400 32px -apple-system, sans-serif';
     ctx.fillText(resultData.titleEn, w / 2, 480);
 
-    // Subtitle
+    // Position subtitle
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
-    ctx.font = '400 28px -apple-system, sans-serif';
-    ctx.fillText(resultData.subtitle, w / 2, 560);
+    ctx.font = '400 30px -apple-system, sans-serif';
+    ctx.fillText(resultData.subtitle, w / 2, 540);
 
-    // Idol names
+    // Idol references (top 3)
     ctx.fillStyle = 'rgba(255,255,255,0.7)';
     ctx.font = '400 26px -apple-system, sans-serif';
-    const idolNames = resultData.idols.slice(0, 4).map(i => `${i.name}(${i.group})`).join(' / ');
-    ctx.fillText(idolNames, w / 2, 640);
+    const topIdols = resultData.idols.slice(0, 3).map(i => i.name).join(' · ');
+    ctx.fillText('대표 아이돌: ' + topIdols, w / 2, 610);
 
     // Best match
-    ctx.fillStyle = 'rgba(255,255,255,0.6)';
-    ctx.font = '400 26px -apple-system, sans-serif';
-    ctx.fillText(`Best Match: ${resultData.bestMatchEmoji} ${resultData.bestMatch}`, w / 2, 720);
+    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    ctx.font = 'bold 28px -apple-system, sans-serif';
+    ctx.fillText(`💕 최고 궁합: ${resultData.bestMatchEmoji} ${resultData.bestMatch}`, w / 2, 680);
 
-    // Divider line
-    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
-    ctx.lineWidth = 1;
+    // Divider line (stage lights)
+    ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(w * 0.2, 780);
-    ctx.lineTo(w * 0.8, 780);
+    ctx.moveTo(w * 0.1, 730);
+    ctx.lineTo(w * 0.9, 730);
     ctx.stroke();
 
-    // CTA
+    // CTA (call to action)
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.font = '400 28px -apple-system, sans-serif';
+    ctx.fillText('너는 어떤 포지션? 👇', w / 2, 810);
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.font = '400 26px -apple-system, sans-serif';
-    ctx.fillText('너는 어떤 포지션? 👉 K-POP 포지션 테스트', w / 2, 850);
+    ctx.font = '400 24px -apple-system, sans-serif';
+    ctx.fillText('K-POP 포지션 테스트', w / 2, 860);
 
     // Hashtags
     ctx.fillStyle = 'rgba(255,255,255,0.4)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText('#KPOP포지션 #아이돌테스트 #KPOPPosition', w / 2, 910);
+    ctx.fillText('#KPOP포지션 #아이돌 #KPOPTest', w / 2, 920);
 
-    // Branding
+    // Branding (DopaBrain)
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText('DopaBrain', w / 2, 1020);
+    ctx.fillText('🎤 DopaBrain', w / 2, 1020);
 
     // Download
     const link = document.createElement('a');

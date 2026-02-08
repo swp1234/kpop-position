@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "Teste de Posição K-POP - Qual é sua Posição de Ídolo?",
+    "description": "Descubra sua posição em K-POP através de 12 questões! Vocal Principal, Líder, Rapper, Dançarino, Visual, Maknae ou Completo? Encontre ídolos correspondentes e muito mais!"
+  },
+  "intro": {
+    "title": "Teste de Posição<br>K-POP",
+    "subtitle": "Qual posição você teria em um grupo K-POP?<br>Descubra sua posição de ídolo através de 12 questões divertidas!",
+    "meta1": "12 Questões",
+    "meta2": "Cerca de 2 min",
+    "meta3": "7 Posições",
+    "startBtn": "Começar Teste",
+    "participantsText": "pessoas participaram!"
+  },
+  "loading": {
+    "text": "Analisando dados de posição..."
+  },
+  "result": {
+    "analysis": "📋 Análise de Posição",
+    "traits": "🔥 Características Principais",
+    "idols": "🌟 Ídolos com Mesma Posição",
+    "groupMatch": "🎵 Sua Posição em Grupos K-POP",
+    "spectrum": "📊 Compatibilidade de Posição",
+    "realLife": "💼 Aplicação na Vida Real",
+    "bestMatch": "💞 Posição de Correspondência Perfeita",
+    "tip": "💡 Conselho",
+    "premiumBtn": "🔓 Análise Profunda com IA (Gráfico de Compatibilidade, Dicas de Treinamento, Caminhos de Carreira)",
+    "shareBtn": "📤 Compartilhar Resultado",
+    "saveImageBtn": "📸 Salvar Imagem",
+    "retryBtn": "🔄 Tentar Novamente",
+    "recommendations": "Experimente também",
+    "compatibilityChart": "💞 Gráfico de Compatibilidade de Posição",
+    "trainingTips": "🎯 Dicas de Treinamento",
+    "careerPaths": "💼 Carreiras Recomendadas",
+    "weeklyRoutine": "📅 Rotina de Treinamento Semanal",
+    "idolAdvice": "Conselho do Ídolo Sênior",
+    "adMessage": "Ver Resultado",
+    "resultSharedMessage": "Resultado copiado!"
+  },
+  "premium": {
+    "perfectMatch": "Correspondência Perfeita",
+    "good": "Bom",
+    "normal": "Normal",
+    "needsEffort": "Requer Esforço"
+  }
+}

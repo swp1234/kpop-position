@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "K-POP Pozisyon Testi - Senin İdol Pozisyonu Nedir?",
+    "description": "12 soruda K-POP pozisyonunu keşfet! Ana Vokal, Lider, Rapper, Dansçı, Görünüş, Maknae veya Hepsi Bir Arada? Uyumlu idolleri ve daha fazlasını bul!"
+  },
+  "intro": {
+    "title": "K-POP Pozisyon<br>Testi",
+    "subtitle": "Bir K-POP grubunda hangi pozisyonda olurdun?<br>12 eğlenceli soruda idol pozisyonunu keşfet!",
+    "meta1": "12 Soru",
+    "meta2": "Yaklaşık 2 dk",
+    "meta3": "7 Pozisyon",
+    "startBtn": "Testi Başlat",
+    "participantsText": "kişi katılmış!"
+  },
+  "loading": {
+    "text": "Pozisyon verileri analiz ediliyor..."
+  },
+  "result": {
+    "analysis": "📋 Pozisyon Analizi",
+    "traits": "🔥 Temel Özellikler",
+    "idols": "🌟 Aynı Pozisyondaki İdoller",
+    "groupMatch": "🎵 K-POP Gruplarda Senin Pozisyonu",
+    "spectrum": "📊 Pozisyon Uyumluluğu",
+    "realLife": "💼 Gerçek Hayat Uygulaması",
+    "bestMatch": "💞 Mükemmel Uyumlu Pozisyon",
+    "tip": "💡 Tavsiye",
+    "premiumBtn": "🔓 YZ Derinlemesine Analiz (Uyumluluk Tablosu, Antrenman İpuçları, Kariyer Yolları)",
+    "shareBtn": "📤 Sonucu Paylaş",
+    "saveImageBtn": "📸 Resmi Kaydet",
+    "retryBtn": "🔄 Tekrar Dene",
+    "recommendations": "Bunları da Dene",
+    "compatibilityChart": "💞 Pozisyon Uyumluluk Tablosu",
+    "trainingTips": "🎯 Antrenman İpuçları",
+    "careerPaths": "💼 Önerilen Kariyerler",
+    "weeklyRoutine": "📅 Haftalık Antrenman Rutini",
+    "idolAdvice": "Kıdemli İdolün Tavsiyesi",
+    "adMessage": "Sonucu Görüntüle",
+    "resultSharedMessage": "Sonuç kopyalandı!"
+  },
+  "premium": {
+    "perfectMatch": "Mükemmel Uyum",
+    "good": "İyi",
+    "normal": "Normal",
+    "needsEffort": "Çalışma Gerekli"
+  }
+}
