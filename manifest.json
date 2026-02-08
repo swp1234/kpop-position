@@ -1,0 +1,23 @@
+{
+    "name": "K-POP 포지션 테스트",
+    "short_name": "K-POP 포지션",
+    "description": "12가지 질문으로 알아보는 나의 K-POP 포지션! 7가지 포지션 중 당신은?",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0d0a1a",
+    "theme_color": "#ff2d78",
+    "icons": [
+        {
+            "src": "icon-192.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "icon-512.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "lang": "ko",
+    "categories": ["entertainment", "lifestyle"]
+}
