@@ -294,9 +294,9 @@ function displayPremiumContent() {
 // Share
 document.getElementById('btn-share').addEventListener('click', shareResult);
 function shareResult() {
-    const text = `🎤 나의 K-POP 포지션: ${resultData.emoji} ${resultData.title}\n${resultData.subtitle}\n\n대표 아이돌: ${resultData.idols.slice(0, 3).map(i => i.name).join(', ')}\n\n너는 어떤 포지션? 👇\nhttps://swp1234.github.io/kpop-position/\n\n#KPOP포지션 #아이돌테스트 #KPOPPosition`;
+    const text = `🎤 나의 K-POP 포지션: ${resultData.emoji} ${resultData.title}\n${resultData.subtitle}\n\n대표 아이돌: ${resultData.idols.slice(0, 3).map(i => i.name).join(', ')}\n\n너는 어떤 포지션? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOP포지션 #아이돌테스트 #KPOPPosition`;
     if (navigator.share) {
-        navigator.share({ title: 'K-POP 포지션 테스트', text, url: 'https://swp1234.github.io/kpop-position/' }).catch(() => {});
+        navigator.share({ title: 'K-POP 포지션 테스트', text, url: 'https://dopabrain.com/kpop-position/' }).catch(() => {});
     } else {
         navigator.clipboard.writeText(text).then(() => alert('결과가 복사되었습니다!')).catch(() => {});
     }
@@ -395,7 +395,7 @@ function generateShareImage() {
     // Branding
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText('FireTools', w / 2, 1020);
+    ctx.fillText('DopaBrain', w / 2, 1020);
 
     // Download
     const link = document.createElement('a');
