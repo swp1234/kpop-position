@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "K-POP Position Test - What's Your Idol Position?",
+    "description": "Discover your K-POP position through 12 questions! Main Vocal, Leader, Rapper, Dancer, Visual, Maknae, or All-Rounder? Find matching idols and more!"
+  },
+  "intro": {
+    "title": "K-POP Position<br>Test",
+    "subtitle": "What position would you have in a K-POP group?<br>Discover your idol position through 12 fun questions!",
+    "meta1": "12 Questions",
+    "meta2": "About 2 min",
+    "meta3": "7 Positions",
+    "startBtn": "Start Test",
+    "participantsText": "people have participated!"
+  },
+  "loading": {
+    "text": "Analyzing position data..."
+  },
+  "result": {
+    "analysis": "📋 Position Analysis",
+    "traits": "🔥 Key Traits",
+    "idols": "🌟 Idols with Same Position",
+    "groupMatch": "🎵 Your Position in K-POP Groups",
+    "spectrum": "📊 Position Compatibility",
+    "realLife": "💼 Real Life Application",
+    "bestMatch": "💞 Perfect Match Position",
+    "tip": "💡 Advice",
+    "premiumBtn": "🔓 AI Deep Analysis (Compatibility Chart, Training Tips, Career Paths)",
+    "shareBtn": "📤 Share Result",
+    "saveImageBtn": "📸 Save Image",
+    "retryBtn": "🔄 Try Again",
+    "recommendations": "Try These Too",
+    "compatibilityChart": "💞 Position Compatibility Chart",
+    "trainingTips": "🎯 Training Tips",
+    "careerPaths": "💼 Recommended Careers",
+    "weeklyRoutine": "📅 Weekly Training Routine",
+    "idolAdvice": "Senior Idol's Advice",
+    "adMessage": "View Result",
+    "resultSharedMessage": "Result copied!"
+  },
+  "premium": {
+    "perfectMatch": "Perfect Match",
+    "good": "Good",
+    "normal": "Normal",
+    "needsEffort": "Needs Effort"
+  }
+}

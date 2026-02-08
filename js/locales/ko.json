@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "K-POP 포지션 테스트 - 나의 아이돌 포지션은?",
+    "description": "12가지 질문으로 알아보는 나의 K-POP 포지션! 메인보컬, 리더, 래퍼, 댄서, 비주얼, 막내, 올라운더 중 당신은? 대표 아이돌 매칭까지!"
+  },
+  "intro": {
+    "title": "K-POP 포지션<br>테스트",
+    "subtitle": "나는 K-POP 그룹에서 어떤 포지션?<br>12가지 질문으로 알아보는 나의 아이돌 포지션!",
+    "meta1": "12문항",
+    "meta2": "약 2분",
+    "meta3": "7가지 포지션",
+    "startBtn": "테스트 시작하기",
+    "participantsText": "명이 참여했어요!"
+  },
+  "loading": {
+    "text": "포지션 데이터를 분석 중..."
+  },
+  "result": {
+    "analysis": "📋 포지션 분석",
+    "traits": "🔥 핵심 특성",
+    "idols": "🌟 같은 포지션 아이돌",
+    "groupMatch": "🎵 그룹별 나와 같은 포지션",
+    "spectrum": "📊 포지션 적합도",
+    "realLife": "💼 현실 적용",
+    "bestMatch": "💞 찰떡궁합 포지션",
+    "tip": "💡 조언",
+    "premiumBtn": "🔓 AI 심층 분석 보기 (궁합표, 트레이닝 팁, 추천 직업)",
+    "shareBtn": "📤 결과 공유하기",
+    "saveImageBtn": "📸 결과 이미지 저장",
+    "retryBtn": "🔄 다시 테스트하기",
+    "recommendations": "이것도 해보세요",
+    "compatibilityChart": "💞 포지션 궁합표",
+    "trainingTips": "🎯 트레이닝 팁",
+    "careerPaths": "💼 추천 직업/분야",
+    "weeklyRoutine": "📅 주간 트레이닝 루틴",
+    "idolAdvice": "선배 아이돌의 조언",
+    "adMessage": "결과 보기",
+    "resultSharedMessage": "결과가 복사되었습니다!"
+  },
+  "premium": {
+    "perfectMatch": "천생연분",
+    "good": "좋음",
+    "normal": "보통",
+    "needsEffort": "노력필요"
+  }
+}
