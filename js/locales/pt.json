@@ -59,5 +59,23 @@
   },
   "game": {
     "back": "DopaBrain Início"
+  },
+  "recommendations": {
+    "mbti": {
+      "name": "MBTI 연애 궁합",
+      "desc": "나와 찰떡인 MBTI 유형은?"
+    },
+    "lovefreq": {
+      "name": "사랑 주파수 테스트",
+      "desc": "나의 사랑 주파수는 몇 Hz?"
+    },
+    "emotion": {
+      "name": "감정 온도계 테스트",
+      "desc": "나의 감정 온도는 몇 도?"
+    },
+    "pastlife": {
+      "name": "전생 직업 테스트",
+      "desc": "나의 전생은 어떤 직업?"
+    }
   }
 }
