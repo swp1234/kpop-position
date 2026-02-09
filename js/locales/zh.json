@@ -42,5 +42,22 @@
     "good": "良好",
     "normal": "普通",
     "needsEffort": "需要努力"
+  },
+  "share": {
+    "title": "分享你的K-POP位置！",
+    "subtitle": "与朋友分享并比较你的位置 🎤",
+    "nativeShare": "📤 原生分享",
+    "shareModal": "分享",
+    "shareClose": "关闭",
+    "twitter": "𝕏 推特",
+    "facebook": "脸书",
+    "kakaotalk": "KakaoTalk",
+    "copyLink": "复制链接",
+    "copied": "已复制到剪贴板！🎤",
+    "compareWith": "🤝 与朋友比较",
+    "inviteText": "我的K-POP位置是 {type}! {emoji} 你也来测试吧！👇"
+  },
+  "game": {
+    "back": "DopaBrain 首页"
   }
 }

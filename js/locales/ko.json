@@ -60,5 +60,22 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "share": {
+    "title": "나의 K-POP 포지션을 공유해보세요!",
+    "subtitle": "친구와 공유하고 함께 포지션을 비교해보세요 🎤",
+    "nativeShare": "📤 네이티브 공유",
+    "shareModal": "공유하기",
+    "shareClose": "닫기",
+    "twitter": "𝕏 트위터",
+    "facebook": "페이스북",
+    "kakaotalk": "카카오톡",
+    "copyLink": "링크 복사",
+    "copied": "클립보드에 복사되었습니다! 🎤",
+    "compareWith": "🤝 친구와 비교하기",
+    "inviteText": "나의 K-POP 포지션은 {type}! {emoji} 너도 테스트해봐! 👇"
+  },
+  "game": {
+    "back": "DopaBrain 홈"
   }
 }

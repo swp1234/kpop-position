@@ -42,5 +42,22 @@
     "good": "良い相性",
     "normal": "普通",
     "needsEffort": "努力が必要"
+  },
+  "share": {
+    "title": "あなたのK-POPポジションをシェアしよう！",
+    "subtitle": "友達とシェアしてポジションを比較しよう 🎤",
+    "nativeShare": "📤 ネイティブシェア",
+    "shareModal": "シェア",
+    "shareClose": "閉じる",
+    "twitter": "𝕏 Twitter",
+    "facebook": "Facebook",
+    "kakaotalk": "KakaoTalk",
+    "copyLink": "リンクをコピー",
+    "copied": "クリップボードにコピーしました！🎤",
+    "compareWith": "🤝 友達と比較",
+    "inviteText": "私のK-POPポジションは {type}! {emoji} あなたも試してみて！👇"
+  },
+  "game": {
+    "back": "DopaBrain ホーム"
   }
 }

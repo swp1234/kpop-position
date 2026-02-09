@@ -42,5 +42,22 @@
     "good": "İyi",
     "normal": "Normal",
     "needsEffort": "Çalışma Gerekli"
+  },
+  "share": {
+    "title": "K-POP Pozisyonunuzu Paylaşın!",
+    "subtitle": "Arkadaşlarınızla paylaşın ve pozisyonları karşılaştırın 🎤",
+    "nativeShare": "📤 Yerel Paylaşım",
+    "shareModal": "Paylaş",
+    "shareClose": "Kapat",
+    "twitter": "𝕏 Twitter",
+    "facebook": "Facebook",
+    "kakaotalk": "KakaoTalk",
+    "copyLink": "Bağlantıyı Kopyala",
+    "copied": "Panoya kopyalandı! 🎤",
+    "compareWith": "🤝 Arkadaş ile Karşılaştır",
+    "inviteText": "Benim K-POP pozisyonum {type}! {emoji} Sen de dene! 👇"
+  },
+  "game": {
+    "back": "DopaBrain Anasayfa"
   }
 }

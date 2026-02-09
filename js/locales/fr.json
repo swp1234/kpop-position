@@ -42,5 +42,22 @@
     "good": "Bon",
     "normal": "Normal",
     "needsEffort": "Nécessite de l'Effort"
+  },
+  "share": {
+    "title": "Partage ta position K-POP!",
+    "subtitle": "Partage avec tes amis et compare vos positions 🎤",
+    "nativeShare": "📤 Partage Natif",
+    "shareModal": "Partager",
+    "shareClose": "Fermer",
+    "twitter": "𝕏 Twitter",
+    "facebook": "Facebook",
+    "kakaotalk": "KakaoTalk",
+    "copyLink": "Copier le lien",
+    "copied": "Copié dans le presse-papiers! 🎤",
+    "compareWith": "🤝 Comparer avec un Ami",
+    "inviteText": "Ma position K-POP est {type}! {emoji} Essaie aussi! 👇"
+  },
+  "game": {
+    "back": "DopaBrain Accueil"
   }
 }

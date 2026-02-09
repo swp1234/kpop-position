@@ -42,5 +42,22 @@
     "good": "Baik",
     "normal": "Normal",
     "needsEffort": "Perlu Usaha"
+  },
+  "share": {
+    "title": "Bagikan Posisi K-POP Anda!",
+    "subtitle": "Bagikan dengan teman dan bandingkan posisi Anda 🎤",
+    "nativeShare": "📤 Bagikan Nativo",
+    "shareModal": "Bagikan",
+    "shareClose": "Tutup",
+    "twitter": "𝕏 Twitter",
+    "facebook": "Facebook",
+    "kakaotalk": "KakaoTalk",
+    "copyLink": "Salin Tautan",
+    "copied": "Disalin ke papan klip! 🎤",
+    "compareWith": "🤝 Bandingkan dengan Teman",
+    "inviteText": "Posisi K-POP saya adalah {type}! {emoji} Coba juga kamu! 👇"
+  },
+  "game": {
+    "back": "Beranda DopaBrain"
   }
 }

@@ -203,6 +203,10 @@
                 <button id="btn-retry" class="btn-action" data-i18n="result.retryBtn">🔄 다시 테스트하기</button>
             </div>
 
+            <div class="share-cta-section">
+                <p class="compare-invite" data-i18n="share.compareWith"></p>
+            </div>
+
             <div class="recommendations-section">
                 <div class="rec-title" data-i18n="result.recommendations">이것도 해보세요</div>
                 <div class="rec-grid">
@@ -255,6 +259,40 @@
             <span id="ad-countdown">5</span><span data-i18n="result.adMessage">초 후 결과를 확인할 수 있습니다</span>
         </div>
         <button id="ad-close" class="ad-close" data-i18n="result.adMessage">결과 보기</button>
+    </div>
+
+    <!-- SHARE MODAL -->
+    <div class="overlay hidden" id="share-modal">
+        <div class="share-modal-content">
+            <button class="share-modal-close" id="share-close">&times;</button>
+            <h2 class="share-modal-title" data-i18n="share.title"></h2>
+            <p class="share-modal-subtitle" data-i18n="share.subtitle"></p>
+
+            <div class="share-buttons">
+                <button class="share-btn share-twitter" id="share-twitter" title="Twitter/X">
+                    <span class="share-icon">𝕏</span>
+                    <span class="share-label" data-i18n="share.twitter"></span>
+                </button>
+                <button class="share-btn share-facebook" id="share-facebook" title="Facebook">
+                    <span class="share-icon">f</span>
+                    <span class="share-label" data-i18n="share.facebook"></span>
+                </button>
+                <button class="share-btn share-kakaotalk" id="share-kakaotalk" title="KakaoTalk">
+                    <span class="share-icon">💬</span>
+                    <span class="share-label" data-i18n="share.kakaotalk"></span>
+                </button>
+                <button class="share-btn share-copy" id="share-copy" title="Copy Link">
+                    <span class="share-icon">🔗</span>
+                    <span class="share-label" data-i18n="share.copyLink"></span>
+                </button>
+            </div>
+
+            <div class="share-native-divider" id="share-native-divider">
+                <span class="share-divider-text">또는</span>
+            </div>
+
+            <button class="share-btn-native" id="share-native" data-i18n="share.nativeShare"></button>
+        </div>
     </div>
 
     <!-- Share Canvas -->

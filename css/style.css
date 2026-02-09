@@ -886,6 +886,30 @@ body {
     text-overflow: ellipsis;
 }
 
+/* === SHARE MODAL === */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.overlay.hidden { display: none; }
+.share-modal-content { background: linear-gradient(135deg,#1a1a35 0%,#0f0f2e 100%); border: 1px solid rgba(255,45,120,0.2); border-radius: 16px; padding: 28px 24px; width: 85%; max-width: 360px; position: relative; animation: slideUp 0.3s ease-out; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.share-modal-close { position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--text-sec); font-size: 28px; cursor: pointer; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s; }
+.share-modal-close:hover { background: rgba(255,45,120,0.1); color: var(--text); }
+.share-modal-title { font-size: 20px; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg,#ff2d78,#ff6ba0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.share-modal-subtitle { font-size: 13px; color: var(--text-sec); margin-bottom: 20px; line-height: 1.5; }
+.share-buttons { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 16px; }
+.share-btn { width: 100%; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 56px; justify-content: center; }
+.share-btn:hover { background: rgba(255,45,120,0.15); border-color: rgba(255,45,120,0.3); transform: translateY(-2px); }
+.share-icon { font-size: 20px; }
+.share-label { font-size: 12px; }
+.share-native-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0; opacity: 0.4; }
+.share-native-divider::before,.share-native-divider::after { flex: 1; content: ''; height: 1px; background: var(--border); }
+.share-divider-text { font-size: 12px; color: var(--text-dim); font-weight: 600; }
+.share-btn-native { width: 100%; padding: 12px; background: linear-gradient(135deg,#ff2d78,#ff6ba0); color: #fff; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; min-height: 48px; }
+.share-btn-native:hover { transform: scale(1.02); box-shadow: 0 4px 16px rgba(255,45,120,0.3); }
+
+/* SHARE CTA SECTION */
+.share-cta-section { background: linear-gradient(135deg,rgba(255,45,120,0.08),rgba(255,107,160,0.08)); border: 1px solid rgba(255,45,120,0.15); border-radius: 16px; padding: 16px; text-align: center; margin-top: 16px; }
+.compare-invite { font-size: 14px; color: var(--text-sec); font-weight: 600; margin: 0; line-height: 1.5; }
+
 /* === FOOTER === */
 .game-footer { text-align: center; padding: 20px 0; margin-top: 20px; }
 .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; padding: 12px 0; transition: color 0.2s; }

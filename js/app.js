@@ -315,17 +315,84 @@ function displayPremiumContent() {
     if (typeof gtag === 'function') gtag('event', 'premium_view', { event_category: 'kpop_position' });
 }
 
-// Share
-document.getElementById('btn-share').addEventListener('click', shareResult);
-function shareResult() {
-    const text = `🎤 나의 K-POP 포지션: ${resultData.emoji} ${resultData.title}\n${resultData.subtitle}\n\n대표 아이돌: ${resultData.idols.slice(0, 3).map(i => i.name).join(', ')}\n\n너는 어떤 포지션? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOP포지션 #아이돌테스트 #KPOPPosition`;
-    if (navigator.share) {
-        navigator.share({ title: 'K-POP 포지션 테스트', text, url: 'https://dopabrain.com/kpop-position/' }).catch(() => {});
-    } else {
-        navigator.clipboard.writeText(text).then(() => alert('결과가 복사되었습니다!')).catch(() => {});
-    }
-    if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position' });
+// Share - 향상된 버전
+function getShareText() {
+    return {
+        title: i18n.t('share.inviteText').replace('{type}', resultData.title).replace('{emoji}', resultData.emoji),
+        shortText: `🎤 ${resultData.title} ${resultData.emoji}`,
+        fullText: `🎤 나의 K-POP 포지션: ${resultData.emoji} ${resultData.title}\n${resultData.subtitle}\n\n대표 아이돌: ${resultData.idols.slice(0, 3).map(i => i.name).join(', ')}\n\n너는 어떤 포지션? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOP포지션 #아이돌테스트 #KPOPPosition`,
+        url: 'https://dopabrain.com/kpop-position/'
+    };
 }
+
+function shareResult() {
+    const shareModal = document.getElementById('share-modal');
+    shareModal.classList.remove('hidden');
+    if (typeof gtag === 'function') gtag('event', 'share_modal_open', { event_category: 'kpop_position' });
+}
+
+// 공유 버튼 이벤트
+function setupShareButtons() {
+    const shareModal = document.getElementById('share-modal');
+    const shareClose = document.getElementById('share-close');
+    const shareData = getShareText();
+
+    // 모달 닫기
+    shareClose.addEventListener('click', () => {
+        shareModal.classList.add('hidden');
+    });
+    shareModal.addEventListener('click', (e) => {
+        if (e.target === shareModal) shareModal.classList.add('hidden');
+    });
+
+    // 트위터 공유
+    document.getElementById('share-twitter')?.addEventListener('click', () => {
+        const text = encodeURIComponent(shareData.title);
+        const url = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(shareData.url)}`;
+        window.open(url, '_blank', 'width=550,height=420');
+        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'twitter' });
+    });
+
+    // 페이스북 공유
+    document.getElementById('share-facebook')?.addEventListener('click', () => {
+        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`;
+        window.open(url, '_blank', 'width=550,height=420');
+        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'facebook' });
+    });
+
+    // 카카오톡 공유 (URL만 공유)
+    document.getElementById('share-kakaotalk')?.addEventListener('click', () => {
+        navigator.clipboard.writeText(shareData.url).then(() => {
+            alert(i18n.t('share.copied'));
+        }).catch(() => {});
+        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'kakaotalk' });
+    });
+
+    // 링크 복사
+    document.getElementById('share-copy')?.addEventListener('click', () => {
+        navigator.clipboard.writeText(`${shareData.title}\n${shareData.url}`).then(() => {
+            alert(i18n.t('share.copied'));
+        }).catch(() => {});
+        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'copy' });
+    });
+
+    // 네이티브 공유
+    document.getElementById('share-native')?.addEventListener('click', () => {
+        if (navigator.share) {
+            navigator.share({
+                title: shareData.title,
+                text: shareData.fullText,
+                url: shareData.url
+            }).then(() => {
+                if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'native' });
+            }).catch(() => {});
+        } else {
+            alert(i18n.t('share.copied'));
+        }
+    });
+}
+
+document.getElementById('btn-share').addEventListener('click', shareResult);
 
 // Save image
 document.getElementById('btn-save-image').addEventListener('click', generateShareImage);
@@ -444,6 +511,9 @@ document.getElementById('btn-retry').addEventListener('click', () => {
     show(introScreen);
     updateTestCount();
 });
+
+// 공유 버튼 초기화
+setupShareButtons();
 
 // Service Worker
 if ('serviceWorker' in navigator) {
