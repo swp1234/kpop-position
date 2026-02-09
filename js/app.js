@@ -66,7 +66,7 @@ document.getElementById('btn-start').addEventListener('click', () => {
 
 function showQuestion() {
     const q = QUESTIONS[currentQ];
-    const progress = ((currentQ) / QUESTIONS.length) * 100;
+    const progress = ((currentQ + 1) / QUESTIONS.length) * 100;
     document.getElementById('progress-fill').style.width = progress + '%';
     document.getElementById('progress-text').textContent = `${currentQ + 1} / ${QUESTIONS.length}`;
     document.getElementById('q-text').textContent = q.text;
