@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="robots" content="max-image-preview:large">
     <title>K-POP 포지션 테스트 - 당신의 아이돌 포지션은? 🎤</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="description" content="12가지 질문으로 알아보는 나의 K-POP 포지션! 🎤 메인보컬, 리더, 래퍼, 댄서, 비주얼, 막내, 올라운더 중 당신은? 대표 아이돌 매칭까지! SNS 공유 가능.">
     <meta name="keywords" content="KPOP 포지션 테스트, K-POP, 아이돌 테스트, BTS, BLACKPINK, 포지션, 메인보컬, 리더, 래퍼, 댄서, 비주얼, 심리테스트">
 
@@ -95,9 +95,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <!-- Prefetch app scripts -->
+    <link rel="prefetch" href="js/data.js">
+    <link rel="prefetch" href="js/app.js">
 
     <!-- i18n -->
-    <script src="js/i18n.js"></script>
+    <script src="js/i18n.js" defer></script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
@@ -361,7 +366,7 @@
         </a>
     </footer>
 
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>
