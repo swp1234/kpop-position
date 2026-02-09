@@ -62,7 +62,7 @@ body {
 .intro-icon {
     font-size: 80px;
     animation: micBounce 2s ease-in-out infinite;
-    animation: micBounce 2s ease-in-out 0.1s forwards;
+    animation: micBounce 2s ease-in-out 0s forwards;
 }
 
 @keyframes micBounce {
@@ -78,14 +78,14 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1.3;
-    animation: slideInDown 0.6s ease-out 0.2s both;
+    animation: slideInDown 0.4s ease-out 0.05s both;
 }
 
 .intro-subtitle {
     font-size: 16px;
     color: var(--text-sec);
     line-height: 1.6;
-    animation: slideInUp 0.6s ease-out 0.3s both;
+    animation: slideInUp 0.4s ease-out 0.1s both;
 }
 
 .intro-meta {
@@ -94,7 +94,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin: 8px 0;
-    animation: slideInUp 0.6s ease-out 0.4s both;
+    animation: slideInUp 0.4s ease-out 0.12s both;
 }
 .meta-item {
     background: var(--surface);
@@ -119,7 +119,7 @@ body {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     margin-top: 12px;
     font-family: inherit;
-    animation: scaleInUp 0.6s ease-out 0.5s both;
+    animation: scaleInUp 0.4s ease-out 0.15s both;
     position: relative;
     overflow: hidden;
 }
@@ -145,11 +145,11 @@ body {
     font-size: 13px;
     color: var(--text-dim);
     margin-top: 8px;
-    animation: slideInUp 0.6s ease-out 0.6s both;
+    animation: slideInUp 0.4s ease-out 0.2s both;
 }
 
 .social-proof {
-    animation: slideInUp 0.6s ease-out 0.65s both;
+    animation: slideInUp 0.4s ease-out 0.22s both;
     font-size: 13px;
     color: var(--text-sec);
 }
@@ -159,7 +159,7 @@ body {
 }
 
 .time-estimate {
-    animation: slideInUp 0.6s ease-out 0.7s both;
+    animation: slideInUp 0.4s ease-out 0.25s both;
     font-size: 14px;
     color: var(--text-sec);
     background: rgba(255,45,120,0.08);
@@ -170,7 +170,7 @@ body {
 }
 
 .scroll-hint {
-    animation: slideInUp 0.6s ease-out 0.75s both, bounce 2s ease-in-out 1.4s infinite;
+    animation: slideInUp 0.4s ease-out 0.28s both, bounce 2s ease-in-out 0.8s infinite;
     font-size: 24px;
     margin-top: 12px;
 }
