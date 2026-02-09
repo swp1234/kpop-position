@@ -1,22 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192" height="192" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#cc0050"/>
-      <stop offset="100%" style="stop-color:#ff2d78"/>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e91e63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ba184f;stop-opacity:1" />
     </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
   </defs>
-  <rect width="192" height="192" rx="40" fill="url(#bg)"/>
-  <!-- Microphone -->
-  <circle cx="96" cy="72" r="22" fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="5"/>
-  <line x1="96" y1="94" x2="96" y2="120" stroke="rgba(255,255,255,0.95)" stroke-width="5" stroke-linecap="round"/>
-  <line x1="82" y1="120" x2="110" y2="120" stroke="rgba(255,255,255,0.95)" stroke-width="5" stroke-linecap="round"/>
-  <!-- Stars -->
-  <circle cx="52" cy="52" r="4" fill="rgba(255,255,255,0.6)"/>
-  <circle cx="140" cy="48" r="3" fill="rgba(255,255,255,0.5)"/>
-  <circle cx="148" cy="140" r="4" fill="rgba(255,255,255,0.6)"/>
-  <circle cx="44" cy="136" r="3" fill="rgba(255,255,255,0.5)"/>
-  <!-- Musical note -->
-  <path d="M130 90 L130 72 L142 68 L142 86" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="128" cy="92" r="4" fill="rgba(255,255,255,0.5)"/>
-  <circle cx="140" cy="88" r="4" fill="rgba(255,255,255,0.5)"/>
+  <rect width="512" height="512" fill="url(#grad1)"/>
+  <g transform="translate(256, 256)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="200" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+    <text x="0" y="0" font-size="180" text-anchor="middle" dominant-baseline="central" fill="white" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" opacity="0.95">🎤</text>
+  </g>
+  <g transform="translate(256, 256)">
+    <circle cx="0" cy="0" r="220" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  </g>
 </svg>
