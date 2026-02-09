@@ -49,7 +49,9 @@ function incrementTestCount() {
 function updateTestCount() {
     const el = document.getElementById('test-count');
     const c = getTestCount();
-    if (c > 0) el.textContent = `${c.toLocaleString()}명이 참여했어요!`;
+    if (c > 0) {
+        el.innerHTML = `<span class="count">${c.toLocaleString()}명</span>이 이미 참여했어요! 🎤`;
+    }
 }
 updateTestCount();
 
