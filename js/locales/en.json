@@ -41,7 +41,28 @@
     "perfectMatch": "Perfect Match",
     "good": "Good",
     "normal": "Normal",
-    "needsEffort": "Needs Effort"
+    "needsEffort": "Needs Effort",
+    "participantsCount": "people have participated!",
+    "loadingMessages": {
+      "msg1": "Analyzing position data...",
+      "msg2": "Matching idol DNA...",
+      "msg3": "Calculating stage compatibility...",
+      "msg4": "Confirming your K-POP position...",
+      "msg5": "Finding representative idols..."
+    },
+    "compatibilityChart": "💞 Position Compatibility Chart",
+    "trainingTips": "🎯 Training Tips",
+    "careerPaths": "💼 Recommended Careers",
+    "weeklyRoutine": "📅 Weekly Training Routine",
+    "idolAdvicePrefix": "Senior Idol's Advice",
+    "shareText": "🎤 My K-POP Position: {emoji} {title}\n{subtitle}\n\nRepresentative Idols: {idols}\n\nWhat's your position? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
+    "myPosition": "My K-POP Position is",
+    "whatPosition": "What's your position? 👇",
+    "shareTitle": "K-POP Position Test",
+    "hashtags": "#KPOPPosition #Idol #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "Representative Idols: ",
+    "bestMatchLabel": "💕 Perfect Match: "
   },
   "share": {
     "title": "Share Your K-POP Position!",

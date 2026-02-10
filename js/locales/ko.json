@@ -41,7 +41,28 @@
     "perfectMatch": "천생연분",
     "good": "좋음",
     "normal": "보통",
-    "needsEffort": "노력필요"
+    "needsEffort": "노력필요",
+    "participantsCount": "명이 이미 참여했어요!",
+    "loadingMessages": {
+      "msg1": "포지션 데이터를 분석 중...",
+      "msg2": "아이돌 DNA를 매칭 중...",
+      "msg3": "무대 적합도를 계산 중...",
+      "msg4": "당신의 K-POP 포지션 확정 중...",
+      "msg5": "대표 아이돌을 찾는 중..."
+    },
+    "compatibilityChart": "💞 포지션 궁합표",
+    "trainingTips": "🎯 트레이닝 팁",
+    "careerPaths": "💼 추천 직업/분야",
+    "weeklyRoutine": "📅 주간 트레이닝 루틴",
+    "idolAdvicePrefix": "선배 아이돌의 조언",
+    "shareText": "🎤 나의 K-POP 포지션: {emoji} {title}\n{subtitle}\n\n대표 아이돌: {idols}\n\n너는 어떤 포지션? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOP포지션 #아이돌테스트 #KPOPPosition",
+    "myPosition": "나의 K-POP 포지션은",
+    "whatPosition": "너는 어떤 포지션? 👇",
+    "shareTitle": "K-POP 포지션 테스트",
+    "hashtags": "#KPOP포지션 #아이돌 #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "대표 아이돌: ",
+    "bestMatchLabel": "💕 최고 궁합: "
   },
   "recommendations": {
     "mbti": {

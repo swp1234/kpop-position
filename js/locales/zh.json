@@ -41,7 +41,28 @@
     "perfectMatch": "完美匹配",
     "good": "良好",
     "normal": "普通",
-    "needsEffort": "需要努力"
+    "needsEffort": "需要努力",
+    "participantsCount": "人已参与！",
+    "loadingMessages": {
+      "msg1": "正在分析位置数据...",
+      "msg2": "正在匹配偶像DNA...",
+      "msg3": "正在计算舞台相容性...",
+      "msg4": "正在确认你的K-POP位置...",
+      "msg5": "正在查找代表偶像..."
+    },
+    "compatibilityChart": "💞 位置相容性图表",
+    "trainingTips": "🎯 培训技巧",
+    "careerPaths": "💼 推荐职业",
+    "weeklyRoutine": "📅 每周培训日程",
+    "idolAdvicePrefix": "资深偶像的建议",
+    "shareText": "🎤 我的K-POP位置: {emoji} {title}\n{subtitle}\n\n代表偶像: {idols}\n\n你的位置是？👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
+    "myPosition": "我的K-POP位置是",
+    "whatPosition": "你的位置是？👇",
+    "shareTitle": "K-POP位置测试",
+    "hashtags": "#K-POP位置 #偶像 #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "代表偶像: ",
+    "bestMatchLabel": "💕 完美相容: "
   },
   "share": {
     "title": "分享你的K-POP位置！",

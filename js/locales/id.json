@@ -41,7 +41,28 @@
     "perfectMatch": "Pasangan Sempurna",
     "good": "Baik",
     "normal": "Normal",
-    "needsEffort": "Perlu Usaha"
+    "needsEffort": "Perlu Usaha",
+    "participantsCount": "orang telah berpartisipasi!",
+    "loadingMessages": {
+      "msg1": "Menganalisis data posisi...",
+      "msg2": "Mencocokkan DNA idol...",
+      "msg3": "Menghitung kompatibilitas panggung...",
+      "msg4": "Mengonfirmasi posisi K-POP Anda...",
+      "msg5": "Menemukan idol perwakilan..."
+    },
+    "compatibilityChart": "💞 Bagan Kompatibilitas Posisi",
+    "trainingTips": "🎯 Tips Pelatihan",
+    "careerPaths": "💼 Karir yang Direkomendasikan",
+    "weeklyRoutine": "📅 Rutinitas Pelatihan Mingguan",
+    "idolAdvicePrefix": "Saran Idol Senior",
+    "shareText": "🎤 Posisi K-POP saya: {emoji} {title}\n{subtitle}\n\nIdol Perwakilan: {idols}\n\nApa posisi Anda？👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
+    "myPosition": "Posisi K-POP saya adalah",
+    "whatPosition": "Apa posisi Anda？👇",
+    "shareTitle": "Tes Posisi K-POP",
+    "hashtags": "#KPOPPosition #Idol #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "Idol Perwakilan: ",
+    "bestMatchLabel": "💕 Pasangan Sempurna: "
   },
   "share": {
     "title": "Bagikan Posisi K-POP Anda!",

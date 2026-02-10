@@ -50,7 +50,7 @@ function updateTestCount() {
     const el = document.getElementById('test-count');
     const c = getTestCount();
     if (c > 0) {
-        el.innerHTML = `<span class="count">${c.toLocaleString()}명</span>이 이미 참여했어요! 🎤`;
+        el.innerHTML = `<span class="count">${c.toLocaleString()}</span>${i18n?.t('premium.participantsCount') || '명이 이미 참여했어요!'} 🎤`;
     }
 }
 updateTestCount();
@@ -112,11 +112,11 @@ function showLoading() {
     let progress = 0;
 
     const messages = [
-        '포지션 데이터를 분석 중...',
-        '아이돌 DNA를 매칭 중...',
-        '무대 적합도를 계산 중...',
-        '당신의 K-POP 포지션 확정 중...',
-        '대표 아이돌을 찾는 중...'
+        i18n?.t('premium.loadingMessages.msg1') || '포지션 데이터를 분석 중...',
+        i18n?.t('premium.loadingMessages.msg2') || '아이돌 DNA를 매칭 중...',
+        i18n?.t('premium.loadingMessages.msg3') || '무대 적합도를 계산 중...',
+        i18n?.t('premium.loadingMessages.msg4') || '당신의 K-POP 포지션 확정 중...',
+        i18n?.t('premium.loadingMessages.msg5') || '대표 아이돌을 찾는 중...'
     ];
 
     const interval = setInterval(() => {
@@ -273,13 +273,16 @@ function displayPremiumContent() {
     const advice = PREMIUM_ADVICE[resultIndex];
 
     // Compatibility chart
-    let compatHTML = '<div class="detail-section"><h3>💞 포지션 궁합표</h3><div class="compat-grid">';
+    let compatHTML = `<div class="detail-section"><h3>${i18n?.t('premium.compatibilityChart') || '💞 포지션 궁합표'}</h3><div class="compat-grid">`;
     const myCompat = COMPATIBILITY[resultIndex];
     const sortedCompat = POS_LABELS.map((label, i) => ({ label, score: myCompat[i], result: RESULTS[i] }))
         .sort((a, b) => b.score - a.score);
 
     sortedCompat.forEach(c => {
-        const level = c.score >= 90 ? '천생연분' : c.score >= 75 ? '좋음' : c.score >= 60 ? '보통' : '노력필요';
+        const level = c.score >= 90 ? (i18n?.t('premium.perfectMatch') || '천생연분') :
+                      c.score >= 75 ? (i18n?.t('premium.good') || '좋음') :
+                      c.score >= 60 ? (i18n?.t('premium.normal') || '보통') :
+                      (i18n?.t('premium.needsEffort') || '노력필요');
         const levelClass = c.score >= 90 ? 'perfect' : c.score >= 75 ? 'good' : c.score >= 60 ? 'normal' : 'low';
         compatHTML += `<div class="compat-item ${levelClass}">
             <span class="compat-emoji">${c.result.emoji}</span>
@@ -292,22 +295,22 @@ function displayPremiumContent() {
     compatHTML += '</div></div>';
 
     // Training tips
-    let tipsHTML = '<div class="detail-section"><h3>🎯 트레이닝 팁</h3><ul>';
+    let tipsHTML = `<div class="detail-section"><h3>${i18n?.t('premium.trainingTips') || '🎯 트레이닝 팁'}</h3><ul>`;
     advice.trainingTips.forEach(t => { tipsHTML += `<li>${t}</li>`; });
     tipsHTML += '</ul></div>';
 
     // Career paths
-    let careerHTML = '<div class="detail-section"><h3>💼 추천 직업/분야</h3><div class="career-chips">';
+    let careerHTML = `<div class="detail-section"><h3>${i18n?.t('premium.careerPaths') || '💼 추천 직업/분야'}</h3><div class="career-chips">`;
     advice.careerPaths.forEach(c => { careerHTML += `<span class="career-chip">${c}</span>`; });
     careerHTML += '</div></div>';
 
     // Weekly routine
-    let routineHTML = '<div class="detail-section"><h3>📅 주간 트레이닝 루틴</h3><ul>';
+    let routineHTML = `<div class="detail-section"><h3>${i18n?.t('premium.weeklyRoutine') || '📅 주간 트레이닝 루틴'}</h3><ul>`;
     advice.weeklyRoutine.forEach(r => { routineHTML += `<li>${r}</li>`; });
     routineHTML += '</ul></div>';
 
     // Idol advice
-    let idolAdviceHTML = `<div class="detail-section"><h3>${resultData.emoji} 선배 아이돌의 조언</h3><p class="idol-advice">"${advice.idolAdvice}"</p></div>`;
+    let idolAdviceHTML = `<div class="detail-section"><h3>${resultData.emoji} ${i18n?.t('premium.idolAdvicePrefix') || '선배 아이돌의 조언'}</h3><p class="idol-advice">"${advice.idolAdvice}"</p></div>`;
 
     premiumCard.innerHTML = compatHTML + tipsHTML + careerHTML + routineHTML + idolAdviceHTML;
     premiumCard.scrollIntoView({ behavior: 'smooth' });
@@ -436,7 +439,7 @@ function generateShareImage() {
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
     ctx.font = '600 36px -apple-system, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('나의 K-POP 포지션은', w / 2, 120);
+    ctx.fillText(i18n?.t('premium.myPosition') || '나의 K-POP 포지션은', w / 2, 120);
 
     // Emoji (stage presence)
     ctx.font = '130px sans-serif';
@@ -461,12 +464,12 @@ function generateShareImage() {
     ctx.fillStyle = 'rgba(255,255,255,0.7)';
     ctx.font = '400 26px -apple-system, sans-serif';
     const topIdols = resultData.idols.slice(0, 3).map(i => i.name).join(' · ');
-    ctx.fillText('대표 아이돌: ' + topIdols, w / 2, 610);
+    ctx.fillText((i18n?.t('premium.topIdolLabel') || '대표 아이돌: ') + topIdols, w / 2, 610);
 
     // Best match
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
     ctx.font = 'bold 28px -apple-system, sans-serif';
-    ctx.fillText(`💕 최고 궁합: ${resultData.bestMatchEmoji} ${resultData.bestMatch}`, w / 2, 680);
+    ctx.fillText(`${i18n?.t('premium.bestMatchLabel') || '💕 최고 궁합: '} ${resultData.bestMatchEmoji} ${resultData.bestMatch}`, w / 2, 680);
 
     // Divider line (stage lights)
     ctx.strokeStyle = 'rgba(255,255,255,0.25)';
@@ -479,20 +482,20 @@ function generateShareImage() {
     // CTA (call to action)
     ctx.fillStyle = 'rgba(255,255,255,0.6)';
     ctx.font = '400 28px -apple-system, sans-serif';
-    ctx.fillText('너는 어떤 포지션? 👇', w / 2, 810);
+    ctx.fillText(i18n?.t('premium.whatPosition') || '너는 어떤 포지션? 👇', w / 2, 810);
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
     ctx.font = '400 24px -apple-system, sans-serif';
-    ctx.fillText('K-POP 포지션 테스트', w / 2, 860);
+    ctx.fillText(i18n?.t('premium.shareTitle') || 'K-POP 포지션 테스트', w / 2, 860);
 
     // Hashtags
     ctx.fillStyle = 'rgba(255,255,255,0.4)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText('#KPOP포지션 #아이돌 #KPOPTest', w / 2, 920);
+    ctx.fillText(i18n?.t('premium.hashtags') || '#KPOP포지션 #아이돌 #KPOPTest', w / 2, 920);
 
     // Branding (DopaBrain)
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText('🎤 DopaBrain', w / 2, 1020);
+    ctx.fillText(i18n?.t('premium.brandName') || '🎤 DopaBrain', w / 2, 1020);
 
     // Download
     const link = document.createElement('a');

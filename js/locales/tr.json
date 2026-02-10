@@ -41,7 +41,28 @@
     "perfectMatch": "Mükemmel Uyum",
     "good": "İyi",
     "normal": "Normal",
-    "needsEffort": "Çalışma Gerekli"
+    "needsEffort": "Çalışma Gerekli",
+    "participantsCount": "kişi katılmış!",
+    "loadingMessages": {
+      "msg1": "Pozisyon verileri analiz ediliyor...",
+      "msg2": "İdol DNA'sı eşleştiriliyor...",
+      "msg3": "Sahne uyumluluğu hesaplanıyor...",
+      "msg4": "Senin K-POP pozisyonu onaylanıyor...",
+      "msg5": "Temsili idoller bulunuyor..."
+    },
+    "compatibilityChart": "💞 Pozisyon Uyumluluk Tablosu",
+    "trainingTips": "🎯 Antrenman İpuçları",
+    "careerPaths": "💼 Önerilen Kariyerler",
+    "weeklyRoutine": "📅 Haftalık Antrenman Rutini",
+    "idolAdvicePrefix": "Kıdemli İdolün Tavsiyesi",
+    "shareText": "🎤 Benim K-POP pozisyonum: {emoji} {title}\n{subtitle}\n\nTemsili İdoller: {idols}\n\nSenin pozisyonu nedir？👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
+    "myPosition": "Benim K-POP pozisyonum",
+    "whatPosition": "Senin pozisyonu nedir？👇",
+    "shareTitle": "K-POP Pozisyon Testi",
+    "hashtags": "#KPOPPosition #Idol #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "Temsili İdoller: ",
+    "bestMatchLabel": "💕 Mükemmel Uyum: "
   },
   "share": {
     "title": "K-POP Pozisyonunuzu Paylaşın!",

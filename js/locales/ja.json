@@ -41,7 +41,28 @@
     "perfectMatch": "完璧な相性",
     "good": "良い相性",
     "normal": "普通",
-    "needsEffort": "努力が必要"
+    "needsEffort": "努力が必要",
+    "participantsCount": "人が参加しました！",
+    "loadingMessages": {
+      "msg1": "ポジションデータを分析中...",
+      "msg2": "アイドルDNAをマッチング中...",
+      "msg3": "舞台適合度を計算中...",
+      "msg4": "あなたのK-POPポジション確定中...",
+      "msg5": "代表アイドルを検索中..."
+    },
+    "compatibilityChart": "💞 ポジション相性チャート",
+    "trainingTips": "🎯 トレーニングのコツ",
+    "careerPaths": "💼 おすすめのキャリア",
+    "weeklyRoutine": "📅 週間トレーニングルーティン",
+    "idolAdvicePrefix": "先輩アイドルのアドバイス",
+    "shareText": "🎤 私のK-POPポジション: {emoji} {title}\n{subtitle}\n\n代表アイドル: {idols}\n\nあなたのポジションは？👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
+    "myPosition": "私のK-POPポジションは",
+    "whatPosition": "あなたのポジションは？👇",
+    "shareTitle": "K-POPポジションテスト",
+    "hashtags": "#KPOPポジション #アイドル #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "代表アイドル: ",
+    "bestMatchLabel": "💕 完璧な相性: "
   },
   "share": {
     "title": "あなたのK-POPポジションをシェアしよう！",

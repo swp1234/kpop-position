@@ -41,7 +41,28 @@
     "perfectMatch": "Pareja Perfecta",
     "good": "Bueno",
     "normal": "Normal",
-    "needsEffort": "Necesita Esfuerzo"
+    "needsEffort": "Necesita Esfuerzo",
+    "participantsCount": "¡personas han participado!",
+    "loadingMessages": {
+      "msg1": "Analizando datos de posición...",
+      "msg2": "Emparejando ADN de ídolo...",
+      "msg3": "Calculando compatibilidad de escena...",
+      "msg4": "Confirmando tu posición K-POP...",
+      "msg5": "Buscando ídolos representativos..."
+    },
+    "compatibilityChart": "💞 Gráfico de Compatibilidad de Posición",
+    "trainingTips": "🎯 Consejos de Entrenamiento",
+    "careerPaths": "💼 Carreras Recomendadas",
+    "weeklyRoutine": "📅 Rutina de Entrenamiento Semanal",
+    "idolAdvicePrefix": "Consejo del Ídolo Senior",
+    "shareText": "🎤 Mi posición K-POP: {emoji} {title}\n{subtitle}\n\nÍdolos Representativos: {idols}\n\n¿Cuál es tu posición？👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
+    "myPosition": "Mi posición K-POP es",
+    "whatPosition": "¿Cuál es tu posición？👇",
+    "shareTitle": "Prueba de Posición K-POP",
+    "hashtags": "#KPOPPosition #Idol #KPOPTest",
+    "brandName": "🎤 DopaBrain",
+    "topIdolLabel": "Ídolos Representativos: ",
+    "bestMatchLabel": "💕 Pareja Perfecta: "
   },
   "share": {
     "title": "¡Comparte tu posición de K-POP!",
