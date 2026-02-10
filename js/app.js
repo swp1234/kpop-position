@@ -13,8 +13,8 @@ const adOverlay = document.getElementById('ad-overlay');
 // Initialize i18n
 (async function initI18n() {
     try {
-        await i18n.loadTranslations(i18n.getCurrentLanguage());
-        i18n.updateUI();
+        const loaded = await i18n.loadTranslations(i18n.getCurrentLanguage());
+        if (loaded) i18n.updateUI();
         const langToggle = document.getElementById('lang-toggle');
         const langMenu = document.getElementById('lang-menu');
         const langOptions = document.querySelectorAll('.lang-option');
@@ -75,6 +75,7 @@ document.getElementById('btn-start').addEventListener('click', () => {
 });
 
 function showQuestion() {
+    if (!QUESTIONS || !QUESTIONS[currentQ]) return;
     const q = QUESTIONS[currentQ];
     const progress = ((currentQ + 1) / QUESTIONS.length) * 100;
     document.getElementById('progress-fill').style.width = progress + '%';
@@ -158,6 +159,7 @@ function showResult() {
         if (s > maxScore) { maxScore = s; resultIndex = i; }
     });
 
+    if (!RESULTS || !RESULTS[resultIndex]) return;
     resultData = RESULTS[resultIndex];
     show(resultScreen);
 
@@ -277,6 +279,7 @@ document.getElementById('ad-close').addEventListener('click', () => {
 });
 
 function displayPremiumContent() {
+    if (!resultData || !PREMIUM_ADVICE || !PREMIUM_ADVICE[resultIndex] || !COMPATIBILITY || !COMPATIBILITY[resultIndex]) return;
     const premiumCard = document.getElementById('premium-content');
     premiumCard.style.display = 'block';
 
@@ -330,6 +333,7 @@ function displayPremiumContent() {
 
 // Share - 향상된 버전
 function getShareText() {
+    if (!resultData) return { title: '', text: '', url: '' };
     const fullTextTemplate = i18n.t('premium.shareText') || `🎤 My K-POP Position: {emoji} {title}\n{subtitle}\n\nRepresentative Idols: {idols}\n\nWhat's your position? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest`;
     const fullText = fullTextTemplate
         .replace('{emoji}', resultData.emoji)
@@ -425,6 +429,7 @@ document.getElementById('btn-share').addEventListener('click', shareResult);
 // Save image
 document.getElementById('btn-save-image').addEventListener('click', generateShareImage);
 function generateShareImage() {
+    if (!resultData) return;
     const canvas = document.getElementById('share-canvas');
     const ctx = canvas.getContext('2d');
     const w = 1080, h = 1080;
