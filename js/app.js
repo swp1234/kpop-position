@@ -340,22 +340,23 @@ function shareResult() {
     if (typeof gtag === 'function') gtag('event', 'share_modal_open', { event_category: 'kpop_position' });
 }
 
-// 공유 버튼 이벤트
+// 공유 버튼 이벤트 (resultData가 null일 수 있으므로 클릭 시점에 getShareText 호출)
 function setupShareButtons() {
     const shareModal = document.getElementById('share-modal');
     const shareClose = document.getElementById('share-close');
-    const shareData = getShareText();
 
     // 모달 닫기
-    shareClose.addEventListener('click', () => {
-        shareModal.classList.add('hidden');
+    shareClose?.addEventListener('click', () => {
+        shareModal?.classList.add('hidden');
     });
-    shareModal.addEventListener('click', (e) => {
+    shareModal?.addEventListener('click', (e) => {
         if (e.target === shareModal) shareModal.classList.add('hidden');
     });
 
     // 트위터 공유
     document.getElementById('share-twitter')?.addEventListener('click', () => {
+        if (!resultData) return;
+        const shareData = getShareText();
         const text = encodeURIComponent(shareData.title);
         const url = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(shareData.url)}`;
         window.open(url, '_blank', 'width=550,height=420');
@@ -364,6 +365,8 @@ function setupShareButtons() {
 
     // 페이스북 공유
     document.getElementById('share-facebook')?.addEventListener('click', () => {
+        if (!resultData) return;
+        const shareData = getShareText();
         const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`;
         window.open(url, '_blank', 'width=550,height=420');
         if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'facebook' });
@@ -371,6 +374,8 @@ function setupShareButtons() {
 
     // 카카오톡 공유 (URL만 공유)
     document.getElementById('share-kakaotalk')?.addEventListener('click', () => {
+        if (!resultData) return;
+        const shareData = getShareText();
         navigator.clipboard.writeText(shareData.url).then(() => {
             alert(i18n.t('share.copied'));
         }).catch(() => {});
@@ -379,6 +384,8 @@ function setupShareButtons() {
 
     // 링크 복사
     document.getElementById('share-copy')?.addEventListener('click', () => {
+        if (!resultData) return;
+        const shareData = getShareText();
         navigator.clipboard.writeText(`${shareData.title}\n${shareData.url}`).then(() => {
             alert(i18n.t('share.copied'));
         }).catch(() => {});
@@ -387,6 +394,8 @@ function setupShareButtons() {
 
     // 네이티브 공유
     document.getElementById('share-native')?.addEventListener('click', () => {
+        if (!resultData) return;
+        const shareData = getShareText();
         if (navigator.share) {
             navigator.share({
                 title: shareData.title,
