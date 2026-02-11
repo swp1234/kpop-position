@@ -10,6 +10,23 @@ const loadingScreen = document.getElementById('loading-screen');
 const resultScreen = document.getElementById('result-screen');
 const adOverlay = document.getElementById('ad-overlay');
 
+// Theme toggle
+(function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+        });
+    }
+})();
+
 // Initialize i18n
 (async function initI18n() {
     try {
