@@ -10,6 +10,8 @@
     "meta2": "About 2 min",
     "meta3": "7 Positions",
     "startBtn": "Start Test",
+    "previewLabel": "Q1.",
+    "previewQuestion": "When you go to karaoke with friends, what do you do?",
     "participantsText": "people have participated!"
   },
   "loading": {

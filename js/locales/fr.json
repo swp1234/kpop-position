@@ -10,6 +10,8 @@
     "meta2": "Environ 2 min",
     "meta3": "7 Positions",
     "startBtn": "Commencer le Test",
+    "previewLabel": "Q1.",
+    "previewQuestion": "Quand tu vas au karaoké avec des amis, que fais-tu ?",
     "participantsText": "personnes ont participé!"
   },
   "loading": {
