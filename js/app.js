@@ -88,7 +88,10 @@ document.getElementById('btn-start').addEventListener('click', () => {
     allScores = [];
     show(questionScreen);
     showQuestion();
-    if (typeof gtag === 'function') gtag('event', 'test_start', { event_category: 'kpop_position' });
+    if (typeof gtag === 'function') {
+        gtag('event', 'test_start', { event_category: 'kpop_position' });
+        gtag('event', 'engagement', { event_category: 'kpop_position', event_label: 'first_interaction' });
+    }
 });
 
 function showQuestion() {
@@ -564,6 +567,20 @@ document.getElementById('btn-retry').addEventListener('click', () => {
 
 // 공유 버튼 초기화
 setupShareButtons();
+
+// GA4 engagement tracking (scroll + timer)
+(function() {
+    let scrollFired = false;
+    window.addEventListener('scroll', function() {
+        if (!scrollFired && window.scrollY > 100) {
+            scrollFired = true;
+            if (typeof gtag === 'function') gtag('event', 'scroll_engagement', { engagement_type: 'scroll' });
+        }
+    }, { passive: true });
+    setTimeout(function() {
+        if (typeof gtag === 'function') gtag('event', 'timer_engagement', { engagement_time_msec: 5000 });
+    }, 5000);
+})();
 
 // Service Worker
 if ('serviceWorker' in navigator) {
