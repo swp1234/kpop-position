@@ -12,7 +12,9 @@
     "startBtn": "Testi Başlat",
     "previewLabel": "Q1.",
     "previewQuestion": "Arkadaşlarınla karaokeye gittiğinde ne yaparsın?",
-    "participantsText": "kişi katılmış!"
+    "participantsText": "kişi katılmış!",
+    "socialProof": "2.400+ kişi pozisyonunu keşfetti 🎤",
+    "microCopy": "Yaklaşık 2 dk · Sonuçlar anında paylaşılabilir"
   },
   "loading": {
     "text": "Pozisyon verileri analiz ediliyor..."
@@ -78,7 +80,8 @@
     "copyLink": "Bağlantıyı Kopyala",
     "copied": "Panoya kopyalandı! 🎤",
     "compareWith": "🤝 Arkadaş ile Karşılaştır",
-    "inviteText": "Benim K-POP pozisyonum {type}! {emoji} Sen de dene! 👇"
+    "inviteText": "Benim K-POP pozisyonum {type}! {emoji} Sen de dene! 👇",
+    "or": "veya"
   },
   "game": {
     "back": "DopaBrain Anasayfa"

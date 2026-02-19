@@ -12,7 +12,9 @@
     "startBtn": "Commencer le Test",
     "previewLabel": "Q1.",
     "previewQuestion": "Quand tu vas au karaoké avec des amis, que fais-tu ?",
-    "participantsText": "personnes ont participé!"
+    "participantsText": "personnes ont participé!",
+    "socialProof": "2 400+ personnes ont découvert leur position 🎤",
+    "microCopy": "Environ 2 min · Résultats partageables instantanément"
   },
   "loading": {
     "text": "Analyse des données de position..."
@@ -78,7 +80,8 @@
     "copyLink": "Copier le lien",
     "copied": "Copié dans le presse-papiers! 🎤",
     "compareWith": "🤝 Comparer avec un Ami",
-    "inviteText": "Ma position K-POP est {type}! {emoji} Essaie aussi! 👇"
+    "inviteText": "Ma position K-POP est {type}! {emoji} Essaie aussi! 👇",
+    "or": "ou"
   },
   "game": {
     "back": "DopaBrain Accueil"

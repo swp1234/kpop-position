@@ -12,7 +12,9 @@
     "startBtn": "Mulai Tes",
     "previewLabel": "Q1.",
     "previewQuestion": "Saat pergi ke karaoke bersama teman, apa yang kamu lakukan?",
-    "participantsText": "orang telah berpartisipasi!"
+    "participantsText": "orang telah berpartisipasi!",
+    "socialProof": "2.400+ orang menemukan posisi mereka 🎤",
+    "microCopy": "Sekitar 2 menit · Hasil langsung bisa dibagikan"
   },
   "loading": {
     "text": "Menganalisis data posisi..."
@@ -78,7 +80,8 @@
     "copyLink": "Salin Tautan",
     "copied": "Disalin ke papan klip! 🎤",
     "compareWith": "🤝 Bandingkan dengan Teman",
-    "inviteText": "Posisi K-POP saya adalah {type}! {emoji} Coba juga kamu! 👇"
+    "inviteText": "Posisi K-POP saya adalah {type}! {emoji} Coba juga kamu! 👇",
+    "or": "atau"
   },
   "game": {
     "back": "Beranda DopaBrain"

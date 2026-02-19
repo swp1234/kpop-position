@@ -12,7 +12,9 @@
     "startBtn": "开始测试",
     "previewLabel": "Q1.",
     "previewQuestion": "和朋友去KTV的时候，你会？",
-    "participantsText": "人参与了!"
+    "participantsText": "人参与了!",
+    "socialProof": "2,400+人已发现自己的位置 🎤",
+    "microCopy": "约2分钟 · 结果可即时分享"
   },
   "loading": {
     "text": "正在分析职位数据..."
@@ -78,7 +80,8 @@
     "copyLink": "复制链接",
     "copied": "已复制到剪贴板！🎤",
     "compareWith": "🤝 与朋友比较",
-    "inviteText": "我的K-POP位置是 {type}! {emoji} 你也来测试吧！👇"
+    "inviteText": "我的K-POP位置是 {type}! {emoji} 你也来测试吧！👇",
+    "or": "或"
   },
   "game": {
     "back": "DopaBrain 首页"

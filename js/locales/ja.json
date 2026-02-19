@@ -12,7 +12,9 @@
     "startBtn": "テストを開始",
     "previewLabel": "Q1.",
     "previewQuestion": "友達とカラオケに行った時、あなたは？",
-    "participantsText": "人が参加しました！"
+    "participantsText": "人が参加しました！",
+    "socialProof": "2,400人以上が自分のポジションを発見 🎤",
+    "microCopy": "約2分 · 結果をすぐシェア可能"
   },
   "loading": {
     "text": "ポジションデータを分析中..."
@@ -78,7 +80,8 @@
     "copyLink": "リンクをコピー",
     "copied": "クリップボードにコピーしました！🎤",
     "compareWith": "🤝 友達と比較",
-    "inviteText": "私のK-POPポジションは {type}! {emoji} あなたも試してみて！👇"
+    "inviteText": "私のK-POPポジションは {type}! {emoji} あなたも試してみて！👇",
+    "or": "または"
   },
   "game": {
     "back": "DopaBrain ホーム"

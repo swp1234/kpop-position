@@ -12,7 +12,9 @@
     "startBtn": "Começar Teste",
     "previewLabel": "Q1.",
     "previewQuestion": "Quando vai ao karaoke com amigos, o que faz?",
-    "participantsText": "pessoas participaram!"
+    "participantsText": "pessoas participaram!",
+    "socialProof": "2.400+ pessoas descobriram sua posição 🎤",
+    "microCopy": "Aprox. 2 min · Resultados compartilháveis instantaneamente"
   },
   "loading": {
     "text": "Analisando dados de posição..."
@@ -78,7 +80,8 @@
     "copyLink": "Copiar Link",
     "copied": "Copiado para área de transferência! 🎤",
     "compareWith": "🤝 Comparar com Amigo",
-    "inviteText": "Minha posição K-POP é {type}! {emoji} Você também tente! 👇"
+    "inviteText": "Minha posição K-POP é {type}! {emoji} Você também tente! 👇",
+    "or": "ou"
   },
   "game": {
     "back": "DopaBrain Início"

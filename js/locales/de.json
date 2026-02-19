@@ -12,7 +12,9 @@
     "startBtn": "Test starten",
     "previewLabel": "Q1.",
     "previewQuestion": "Wenn du mit Freunden zum Karaoke gehst, was machst du?",
-    "participantsText": "Menschen haben teilgenommen!"
+    "participantsText": "Menschen haben teilgenommen!",
+    "socialProof": "2.400+ Personen haben ihre Position entdeckt 🎤",
+    "microCopy": "Ca. 2 Min · Ergebnisse sofort teilbar"
   },
   "loading": {
     "text": "Analysiere Positionsdaten..."
@@ -78,7 +80,8 @@
     "copyLink": "Link kopieren",
     "copied": "In die Zwischenablage kopiert! 🎤",
     "compareWith": "🤝 Mit Freund vergleichen",
-    "inviteText": "Meine K-POP Position ist {type}! {emoji} Probiere auch du! 👇"
+    "inviteText": "Meine K-POP Position ist {type}! {emoji} Probiere auch du! 👇",
+    "or": "oder"
   },
   "game": {
     "back": "DopaBrain Startseite"
