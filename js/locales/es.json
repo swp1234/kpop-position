@@ -4,12 +4,12 @@
     "description": "¡Descubre tu posición en K-POP a través de 12 preguntas! ¿Vocal Principal, Líder, Rapero, Bailarín, Visual, Maknae u Artista Versátil? ¡Encuentra ídolos que coincidan y más!"
   },
   "intro": {
-    "title": "Prueba de Posición<br>K-POP",
-    "subtitle": "¿Qué posición tendrías en un grupo de K-POP?<br>¡Descubre tu posición de ídolo a través de 12 preguntas divertidas!",
+    "title": "Test de Posición K-POP",
+    "subtitle": "¿Qué posición K-POP eres?<br>¡Descúbrelo con 12 preguntas!",
     "meta1": "12 Preguntas",
     "meta2": "Aproximadamente 2 min",
     "meta3": "7 Posiciones",
-    "startBtn": "Iniciar Prueba",
+    "startBtn": "Encontrar Mi Posición - Gratis",
     "previewLabel": "Q1.",
     "previewQuestion": "Cuando vas al karaoke con amigos, ¿qué haces?",
     "participantsText": "¡personas han participado!",
@@ -115,5 +115,19 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "engage": {
+    "result1": "Vocalista Principal -- Voz Poderosa",
+    "result2": "Bailarín Líder -- Maestro de Coreografía",
+    "result3": "Visual -- Rostro del Grupo",
+    "result4": "All-Rounder -- Estrella Multitalento",
+    "socialProof": "2,400+ posiciones descubiertas hoy"
+  },
+  "about": {
+    "toggle": "Sobre Este Test",
+    "heading1": "Cómo Funciona",
+    "text1": "12 preguntas divertidas analizan tu personalidad y preferencias creativas.",
+    "heading2": "Lo Que Tu Posición Dice de Ti",
+    "text2": "Tu posición revela tu rol natural en grupos."
   }
 }

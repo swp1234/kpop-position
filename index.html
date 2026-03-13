@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="max-image-preview:large">
-    <title>K-POP Position Test - Free Idol Role Quiz | DopaBrain</title>
+    <title>K-POP Position Test - Free Online Idol Quiz | DopaBrain</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
-    <meta name="description" content="Find your K-POP idol position with 12 fun questions! Main vocal, leader, rapper, dancer, or visual? Get matched to a real idol. Play free!">
+    <meta name="description" content="Which K-POP idol position are you? Take this free 12-question quiz to find out! Main Vocal, Lead Dancer, or Visual? Get matched to a real idol now!">
     <meta name="keywords" content="KPOP 포지션 테스트, K-POP, 아이돌 테스트, BTS, BLACKPINK, 포지션, 메인보컬, 리더, 래퍼, 댄서, 비주얼, 심리테스트">
 
     <!-- Open Graph -->
@@ -86,6 +86,53 @@
         }
     }
     </script>
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dopabrain.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Tests", "item": "https://dopabrain.com/portal/" },
+            { "@type": "ListItem", "position": 3, "name": "K-Pop Tests", "item": "https://dopabrain.com/portal/" },
+            { "@type": "ListItem", "position": 4, "name": "K-POP Position Test", "item": "https://dopabrain.com/kpop-position/" }
+        ]
+    }
+    </script>
+    <!-- FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a K-POP position test?",
+                "acceptedAnswer": { "@type": "Answer", "text": "A K-POP position test determines which role you would play in a K-POP idol group based on your personality and talents. Positions include Main Vocal, Lead Dancer, Rapper, Visual, Leader, Maknae (youngest), and All-Rounder." }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the 7 K-POP idol positions?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The 7 positions are: Main Vocal (powerful singing), Lead Dancer (choreography master), Rapper (flow and lyrics), Visual (face of the group), Leader (team coordinator), Maknae (youngest energy), and All-Rounder (versatile multi-talent)." }
+            },
+            {
+                "@type": "Question",
+                "name": "Which K-POP idols match each position?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Famous examples include: Main Vocal - Jungkook (BTS), Rose (BLACKPINK); Lead Dancer - Momo (TWICE), Kai (EXO); Rapper - Lisa (BLACKPINK), RM (BTS); Visual - V (BTS), Irene (Red Velvet)." }
+            },
+            {
+                "@type": "Question",
+                "name": "How many questions are in the K-POP position test?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The test consists of 12 fun questions about your personality, preferences, and behavior in group settings. It takes about 2 minutes to complete and gives you an instant shareable result." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I share my K-POP position test result?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes! After getting your result, you can share it directly to Twitter/X, Facebook, KakaoTalk, or copy the link to share anywhere. You can also save your result as an image." }
+            }
+        ]
+    }
+    </script>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -151,18 +198,32 @@
     <div id="intro-screen" class="screen active">
         <div class="intro-container">
             <div class="intro-icon">🎤</div>
-            <h1 class="intro-title" data-i18n="intro.title">K-POP 포지션<br>테스트</h1>
-            <p class="intro-subtitle" data-i18n="intro.subtitle">나는 K-POP 그룹에서 어떤 포지션?<br>12가지 질문으로 알아보는 나의 아이돌 포지션!</p>
+            <h1 class="intro-title" data-i18n="intro.title">K-POP Position Test</h1>
+            <p class="intro-subtitle" data-i18n="intro.subtitle">Which K-POP idol position are you?<br>Find out with 12 fun questions!</p>
+
+            <!-- Result Preview Carousel -->
+            <div class="result-carousel" aria-live="polite">
+                <div class="carousel-track">
+                    <div class="carousel-item" data-i18n="engage.result1">Main Vocal -- Powerful Voice</div>
+                    <div class="carousel-item" data-i18n="engage.result2">Lead Dancer -- Choreography Master</div>
+                    <div class="carousel-item" data-i18n="engage.result3">Visual -- Face of the Group</div>
+                    <div class="carousel-item" data-i18n="engage.result4">All-Rounder -- Multi-Talented Star</div>
+                </div>
+            </div>
+
+            <!-- Social Proof Badge -->
+            <div class="social-proof-badge" data-i18n="engage.socialProof">2,400+ positions discovered today</div>
+
             <div class="intro-meta">
-                <span class="meta-item" data-i18n="intro.meta1">12문항</span>
-                <span class="meta-item" data-i18n="intro.meta2">약 2분</span>
-                <span class="meta-item" data-i18n="intro.meta3">7가지 포지션</span>
+                <span class="meta-item" data-i18n="intro.meta1">12 Questions</span>
+                <span class="meta-item" data-i18n="intro.meta2">About 2 min</span>
+                <span class="meta-item" data-i18n="intro.meta3">7 Positions</span>
             </div>
             <div class="intro-preview-question">
                 <span class="preview-label" data-i18n="intro.previewLabel">Q1.</span>
-                <span class="preview-text" data-i18n="intro.previewQuestion">친구들과 노래방에 갔을 때 나는?</span>
+                <span class="preview-text" data-i18n="intro.previewQuestion">When you go to karaoke with friends?</span>
             </div>
-            <button id="btn-start" class="btn-start btn-start-pulse" data-i18n="intro.startBtn">나의 포지션 찾기</button>
+            <button id="btn-start" class="btn-start btn-start-pulse" data-i18n="intro.startBtn">Find My Position - It's Free</button>
             <p class="social-proof" data-i18n="intro.socialProof">2,400+ people discovered their position 🎤</p>
             <p class="micro-copy" data-i18n="intro.microCopy">About 2 min · Instant shareable results</p>
         </div>
@@ -347,11 +408,24 @@
     <!-- Share Canvas -->
     <canvas id="share-canvas" width="1080" height="1080"></canvas>
 
-            <!-- Footer with Home Link -->
+    <!-- About Section -->
+    <section class="about-section collapsible-section" id="about-section">
+      <details>
+        <summary data-i18n="about.toggle">About the K-POP Position Test</summary>
+        <div class="about-content">
+          <h2 data-i18n="about.heading1">How the K-POP Position Test Works</h2>
+          <p data-i18n="about.text1">The K-POP Position Test asks 12 fun questions about your personality, social behavior, and creative preferences. Based on your answers, it analyzes which of the 7 classic K-POP idol positions best matches you — from Main Vocal and Lead Dancer to Rapper, Visual, Leader, Maknae, and All-Rounder. You also get matched to real K-POP idols who share your position.</p>
+          <h2 data-i18n="about.heading2">What Your K-POP Position Says About You</h2>
+          <p data-i18n="about.text2">Your K-POP position reveals your natural role in group settings. Main Vocals are confident performers, Lead Dancers are dedicated perfectionists, Rappers are creative expressionists, Visuals are charming communicators, and Leaders are responsible coordinators. Understanding your position can give fun insights into your real-life strengths.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Footer with Home Link -->
     <footer class="game-footer">
         <a href="https://dopabrain.com/portal/" class="back-link" data-i18n="game.back">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="m15 18-6-6 6-6"></path></svg>
-            DopaBrain 홈
+            DopaBrain Home
         </a>
     </footer>
 

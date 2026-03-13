@@ -4,12 +4,12 @@
     "description": "12 soruda K-POP pozisyonunu keşfet! Ana Vokal, Lider, Rapper, Dansçı, Görünüş, Maknae veya Hepsi Bir Arada? Uyumlu idolleri ve daha fazlasını bul!"
   },
   "intro": {
-    "title": "K-POP Pozisyon<br>Testi",
-    "subtitle": "Bir K-POP grubunda hangi pozisyonda olurdun?<br>12 eğlenceli soruda idol pozisyonunu keşfet!",
+    "title": "K-POP Pozisyon Testi",
+    "subtitle": "Hangi K-POP pozisyonusunuz?<br>12 soruyla öğrenin!",
     "meta1": "12 Soru",
     "meta2": "Yaklaşık 2 dk",
     "meta3": "7 Pozisyon",
-    "startBtn": "Testi Başlat",
+    "startBtn": "Pozisyonumu Bul - Ücretsiz",
     "previewLabel": "Q1.",
     "previewQuestion": "Arkadaşlarınla karaokeye gittiğinde ne yaparsın?",
     "participantsText": "kişi katılmış!",
@@ -115,5 +115,19 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "engage": {
+    "result1": "Ana Vokal -- Güçlü Ses",
+    "result2": "Lider Dansçı -- Koreografi Ustası",
+    "result3": "Visual -- Grubun Yüzü",
+    "result4": "All-Rounder -- Çok Yetenekli Yıldız",
+    "socialProof": "Bugün 2,400+ keşif"
+  },
+  "about": {
+    "toggle": "Bu Test Hakkında",
+    "heading1": "Nasıl Çalışır",
+    "text1": "12 eğlenceli soru kişiliğinizi analiz eder.",
+    "heading2": "Pozisyonunuz Ne Söylüyor",
+    "text2": "Pozisyon gruptaki doğal rolünüzü ortaya koyar."
   }
 }

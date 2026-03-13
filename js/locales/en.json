@@ -4,12 +4,12 @@
     "description": "Discover your K-POP position through 12 questions! Main Vocal, Leader, Rapper, Dancer, Visual, Maknae, or All-Rounder? Find matching idols and more!"
   },
   "intro": {
-    "title": "K-POP Position<br>Test",
-    "subtitle": "What position would you have in a K-POP group?<br>Discover your idol position through 12 fun questions!",
+    "title": "K-POP Position Test",
+    "subtitle": "Which K-POP idol position are you?<br>Find out with 12 fun questions!",
     "meta1": "12 Questions",
     "meta2": "About 2 min",
     "meta3": "7 Positions",
-    "startBtn": "Start Test",
+    "startBtn": "Find My Position - It's Free",
     "previewLabel": "Q1.",
     "previewQuestion": "When you go to karaoke with friends, what do you do?",
     "participantsText": "people have participated!",
@@ -115,5 +115,19 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "engage": {
+    "result1": "Main Vocal -- Powerful Voice",
+    "result2": "Lead Dancer -- Choreography Master",
+    "result3": "Visual -- Face of the Group",
+    "result4": "All-Rounder -- Multi-Talented Star",
+    "socialProof": "2,400+ positions discovered today"
+  },
+  "about": {
+    "toggle": "About the K-POP Position Test",
+    "heading1": "How the K-POP Position Test Works",
+    "text1": "The K-POP Position Test asks 12 fun questions about your personality and creative preferences. It analyzes which of the 7 classic idol positions best matches you and pairs you with real K-POP idols.",
+    "heading2": "What Your K-POP Position Says About You",
+    "text2": "Your position reveals your natural role in group settings. Main Vocals are confident performers, Dancers are dedicated perfectionists, and Visuals are charming communicators."
   }
 }

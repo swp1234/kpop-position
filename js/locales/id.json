@@ -4,12 +4,12 @@
     "description": "Temukan posisi K-POP Anda melalui 12 pertanyaan! Main Vocal, Leader, Rapper, Dancer, Visual, Maknae, atau All-Rounder? Temukan idol yang cocok dan lainnya!"
   },
   "intro": {
-    "title": "Tes Posisi<br>K-POP",
-    "subtitle": "Posisi apa yang akan Anda miliki dalam grup K-POP?<br>Temukan posisi idol Anda melalui 12 pertanyaan yang menyenangkan!",
+    "title": "Tes Posisi K-POP",
+    "subtitle": "Posisi K-POP apa kamu?<br>Cari tahu dengan 12 pertanyaan!",
     "meta1": "12 Pertanyaan",
     "meta2": "Sekitar 2 menit",
     "meta3": "7 Posisi",
-    "startBtn": "Mulai Tes",
+    "startBtn": "Temukan Posisi Saya - Gratis",
     "previewLabel": "Q1.",
     "previewQuestion": "Saat pergi ke karaoke bersama teman, apa yang kamu lakukan?",
     "participantsText": "orang telah berpartisipasi!",
@@ -115,5 +115,19 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "engage": {
+    "result1": "Main Vocal -- Suara Kuat",
+    "result2": "Lead Dancer -- Master Koreografi",
+    "result3": "Visual -- Wajah Grup",
+    "result4": "All-Rounder -- Bintang Multi-Talenta",
+    "socialProof": "2,400+ posisi ditemukan hari ini"
+  },
+  "about": {
+    "toggle": "Tentang Tes Ini",
+    "heading1": "Cara Kerja",
+    "text1": "12 pertanyaan menyenangkan menganalisis kepribadian dan preferensi kreatif Anda.",
+    "heading2": "Apa Kata Posisi Anda",
+    "text2": "Posisi menunjukkan peran alami Anda dalam kelompok."
   }
 }

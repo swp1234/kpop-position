@@ -4,12 +4,12 @@
     "description": "Entdecke deine K-POP-Position durch 12 Fragen! Hauptgesang, Anführer, Rapper, Tänzer, Visuell, Maknae oder Allrounder? Finde passende Idole und mehr!"
   },
   "intro": {
-    "title": "K-POP Position<br>Test",
-    "subtitle": "Welche Position würdest du in einer K-POP-Gruppe haben?<br>Entdecke deine Idol-Position durch 12 unterhaltsame Fragen!",
+    "title": "K-POP Positions-Test",
+    "subtitle": "Welche K-POP Position bist du?<br>Finde es mit 12 Fragen heraus!",
     "meta1": "12 Fragen",
     "meta2": "Etwa 2 Minuten",
     "meta3": "7 Positionen",
-    "startBtn": "Test starten",
+    "startBtn": "Meine Position finden - Kostenlos",
     "previewLabel": "Q1.",
     "previewQuestion": "Wenn du mit Freunden zum Karaoke gehst, was machst du?",
     "participantsText": "Menschen haben teilgenommen!",
@@ -115,5 +115,19 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "engage": {
+    "result1": "Hauptsänger -- Kraftvolle Stimme",
+    "result2": "Lead-Tänzer -- Choreografie-Meister",
+    "result3": "Visual -- Gesicht der Gruppe",
+    "result4": "Allrounder -- Multi-Talent Star",
+    "socialProof": "Heute 2,400+ entdeckt"
+  },
+  "about": {
+    "toggle": "Über diesen Test",
+    "heading1": "Wie es funktioniert",
+    "text1": "12 lustige Fragen analysieren Ihre Persönlichkeit und kreativen Vorlieben.",
+    "heading2": "Was Ihre Position sagt",
+    "text2": "Ihre Position zeigt Ihre natürliche Rolle in Gruppen."
   }
 }

@@ -4,12 +4,12 @@
     "description": "通过12个问题发现你的K-POP职位!主唱、队长、说唱歌手、舞蹈家、视觉、幼豹或全能型?找到匹配的偶像等!"
   },
   "intro": {
-    "title": "K-POP职位<br>测试",
-    "subtitle": "你在K-POP团队中会有什么职位?<br>通过12个有趣的问题发现你的偶像职位!",
+    "title": "K-POP位置测试",
+    "subtitle": "你是K-POP组合中的哪个位置？<br>12个问题揭晓！",
     "meta1": "12个问题",
     "meta2": "约2分钟",
     "meta3": "7个职位",
-    "startBtn": "开始测试",
+    "startBtn": "找到我的位置 - 免费",
     "previewLabel": "Q1.",
     "previewQuestion": "和朋友去KTV的时候，你会？",
     "participantsText": "人参与了!",
@@ -115,5 +115,19 @@
       "name": "전생 직업 테스트",
       "desc": "나의 전생은 어떤 직업?"
     }
+  },
+  "engage": {
+    "result1": "主唱 -- 强大的声音",
+    "result2": "领舞 -- 编舞大师",
+    "result3": "门面 -- 团体的脸",
+    "result4": "全能 -- 多才多艺明星",
+    "socialProof": "今天2,400+人已发现"
+  },
+  "about": {
+    "toggle": "关于此测试",
+    "heading1": "如何运作",
+    "text1": "12个有趣的问题分析你的性格和创意偏好。",
+    "heading2": "位置告诉你什么",
+    "text2": "位置显示你在团体中的自然角色。"
   }
 }
