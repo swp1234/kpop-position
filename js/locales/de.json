@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 Wöchentliche Trainingsroutine",
     "idolAdvice": "Senior-Idol-Rat",
     "adMessage": "Ergebnis anzeigen",
-    "resultSharedMessage": "Ergebnis kopiert!"
+    "resultSharedMessage": "Ergebnis kopiert!",
+    "relatedTests": "🧪 Probiere auch diese Tests",
+    "percentileTitle": "📈 Deine Seltenheit",
+    "percentileDesc": "Nur <strong>{pct}%</strong> der Testteilnehmer haben dieses Ergebnis erhalten! Deine Position ist vom {rarity} Typ.",
+    "rarityVeryRare": "sehr seltenen",
+    "rarityRare": "seltenen",
+    "rarityCommon": "häufigen"
   },
   "premium": {
     "perfectMatch": "Perfekte Passung",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "DopaBrain Startseite"
+  },
+  "relatedTests": {
+    "animalPersonality": "Tier-Persönlichkeitstest",
+    "colorPersonality": "Farb-Persönlichkeitstest",
+    "mbtiLove": "MBTI Liebeskompatibilität",
+    "rizzScore": "Rizz-Punktetest"
   },
   "recommendations": {
     "mbti": {

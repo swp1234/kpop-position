@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 週間トレーニングルーティン",
     "idolAdvice": "先輩アイドルのアドバイス",
     "adMessage": "結果を表示",
-    "resultSharedMessage": "結果がコピーされました！"
+    "resultSharedMessage": "結果がコピーされました！",
+    "relatedTests": "🧪 こちらのテストもお試しください",
+    "percentileTitle": "📈 あなたの希少度",
+    "percentileDesc": "テスト参加者のうち<strong>{pct}%</strong>だけがこの結果を得ました！あなたのポジションは{rarity}タイプです。",
+    "rarityVeryRare": "非常に希少な",
+    "rarityRare": "希少な",
+    "rarityCommon": "一般的な"
   },
   "premium": {
     "perfectMatch": "完璧な相性",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "DopaBrain ホーム"
+  },
+  "relatedTests": {
+    "animalPersonality": "動物性格テスト",
+    "colorPersonality": "カラー性格テスト",
+    "mbtiLove": "MBTI恋愛相性",
+    "rizzScore": "リズスコアテスト"
   },
   "recommendations": {
     "mbti": {

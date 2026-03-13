@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 주간 트레이닝 루틴",
     "idolAdvice": "선배 아이돌의 조언",
     "adMessage": "결과 보기",
-    "resultSharedMessage": "결과가 복사되었습니다!"
+    "resultSharedMessage": "결과가 복사되었습니다!",
+    "relatedTests": "🧪 이런 테스트도 해보세요",
+    "percentileTitle": "📈 당신의 희귀도",
+    "percentileDesc": "테스트 참여자 중 <strong>{pct}%</strong>만이 이 결과를 받았습니다! 당신의 포지션은 {rarity} 유형입니다.",
+    "rarityVeryRare": "매우 희귀한",
+    "rarityRare": "희귀한",
+    "rarityCommon": "흔한"
   },
   "premium": {
     "perfectMatch": "천생연분",
@@ -67,6 +73,12 @@
     "brandName": "🎤 DopaBrain",
     "topIdolLabel": "대표 아이돌: ",
     "bestMatchLabel": "💕 최고 궁합: "
+  },
+  "relatedTests": {
+    "animalPersonality": "동물 성격 테스트",
+    "colorPersonality": "색깔 성격 테스트",
+    "mbtiLove": "MBTI 연애 궁합",
+    "rizzScore": "리즈 점수 테스트"
   },
   "recommendations": {
     "mbti": {

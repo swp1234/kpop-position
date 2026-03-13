@@ -223,6 +223,9 @@ function showResult() {
     // Group matching
     renderGroupMatch();
 
+    // Percentile stat
+    renderPercentile(resultIndex);
+
     incrementTestCount();
     if (typeof gtag === 'function') gtag('event', 'test_complete', { event_category: 'kpop_position', event_label: resultData.title });
 }
@@ -270,6 +273,24 @@ function renderGroupMatch() {
             container.appendChild(chip);
         }
     });
+}
+
+// Percentile stat - simulated rarity based on position distribution
+function renderPercentile(posIdx) {
+    // Approximate distribution: some positions rarer than others
+    const distribution = [18, 15, 14, 16, 12, 10, 15]; // vocal, leader, rapper, dancer, visual, maknae, allrounder
+    const pct = distribution[posIdx] || 14;
+    const percentileEl = document.getElementById('percentile-text');
+    if (percentileEl) {
+        const template = i18n?.t('result.percentileDesc') ||
+            'Only <strong>{pct}%</strong> of test takers got this result! Your position is {rarity}.';
+        const rarity = pct <= 12
+            ? (i18n?.t('result.rarityVeryRare') || 'very rare')
+            : pct <= 15
+            ? (i18n?.t('result.rarityRare') || 'rare')
+            : (i18n?.t('result.rarityCommon') || 'common');
+        percentileEl.innerHTML = template.replace('{pct}', pct).replace('{rarity}', rarity);
+    }
 }
 
 // Premium

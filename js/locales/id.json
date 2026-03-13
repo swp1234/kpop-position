@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 Rutinitas Pelatihan Mingguan",
     "idolAdvice": "Saran Idol Senior",
     "adMessage": "Lihat Hasil",
-    "resultSharedMessage": "Hasil disalin!"
+    "resultSharedMessage": "Hasil disalin!",
+    "relatedTests": "🧪 Coba Tes Ini Juga",
+    "percentileTitle": "📈 Kelangkaan Anda",
+    "percentileDesc": "Hanya <strong>{pct}%</strong> peserta tes yang mendapatkan hasil ini! Posisi Anda adalah tipe {rarity}.",
+    "rarityVeryRare": "sangat langka",
+    "rarityRare": "langka",
+    "rarityCommon": "umum"
   },
   "premium": {
     "perfectMatch": "Pasangan Sempurna",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "Beranda DopaBrain"
+  },
+  "relatedTests": {
+    "animalPersonality": "Tes Kepribadian Hewan",
+    "colorPersonality": "Tes Kepribadian Warna",
+    "mbtiLove": "Kecocokan Cinta MBTI",
+    "rizzScore": "Tes Skor Rizz"
   },
   "recommendations": {
     "mbti": {

@@ -1031,6 +1031,96 @@ body {
 .share-cta-section { background: linear-gradient(135deg,rgba(255,45,120,0.08),rgba(255,107,160,0.08)); border: 1px solid rgba(255,45,120,0.15); border-radius: 16px; padding: 16px; text-align: center; margin-top: 16px; }
 .compare-invite { font-size: 14px; color: var(--text-sec); font-weight: 600; margin: 0; line-height: 1.5; }
 
+/* === PERCENTILE CARD === */
+.percentile-card { text-align: center; }
+.percentile-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-sec);
+}
+.percentile-text strong {
+    color: var(--primary-light);
+    font-weight: 800;
+    font-size: 20px;
+}
+
+/* === RELATED TESTS === */
+.related-tests {
+    width: 100%;
+    animation: slideInUp 0.6s ease-out 0.3s both;
+}
+.related-tests-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    text-align: center;
+}
+.related-tests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.related-test-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+.related-test-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--card-color, var(--primary));
+    opacity: 0.7;
+}
+.related-test-card:hover,
+.related-test-card:active {
+    border-color: var(--card-color, var(--primary));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.related-test-icon {
+    font-size: 32px;
+    transition: transform 0.3s;
+}
+.related-test-card:hover .related-test-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+.related-test-name {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+}
+
+[data-theme="light"] .related-test-card {
+    background: rgba(255,255,255,0.9);
+    border-color: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .related-test-card:hover {
+    background: rgba(255,255,255,1);
+    border-color: var(--card-color, var(--primary));
+}
+[data-theme="light"] .related-tests-title {
+    color: var(--text);
+}
+[data-theme="light"] .percentile-text strong {
+    color: var(--primary);
+}
+
 /* === FOOTER === */
 .game-footer { text-align: center; padding: 20px 0; margin-top: 20px; }
 .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; padding: 12px 0; transition: color 0.2s; }

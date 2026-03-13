@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 Weekly Training Routine",
     "idolAdvice": "Senior Idol's Advice",
     "adMessage": "View Result",
-    "resultSharedMessage": "Result copied!"
+    "resultSharedMessage": "Result copied!",
+    "relatedTests": "🧪 Try These Tests Too",
+    "percentileTitle": "📈 Your Rarity",
+    "percentileDesc": "Only <strong>{pct}%</strong> of test takers got this result! Your position is {rarity}.",
+    "rarityVeryRare": "very rare",
+    "rarityRare": "rare",
+    "rarityCommon": "common"
   },
   "premium": {
     "perfectMatch": "Perfect Match",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "relatedTests": {
+    "animalPersonality": "Animal Personality",
+    "colorPersonality": "Color Personality",
+    "mbtiLove": "MBTI Love Match",
+    "rizzScore": "Rizz Score Test"
   },
   "recommendations": {
     "mbti": {

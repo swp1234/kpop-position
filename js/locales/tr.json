@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 Haftalık Antrenman Rutini",
     "idolAdvice": "Kıdemli İdolün Tavsiyesi",
     "adMessage": "Sonucu Görüntüle",
-    "resultSharedMessage": "Sonuç kopyalandı!"
+    "resultSharedMessage": "Sonuç kopyalandı!",
+    "relatedTests": "🧪 Bu Testleri de Deneyin",
+    "percentileTitle": "📈 Nadirliğiniz",
+    "percentileDesc": "Test katılımcılarının sadece <strong>{pct}%</strong>'i bu sonucu aldı! Pozisyonunuz {rarity} türünde.",
+    "rarityVeryRare": "çok nadir",
+    "rarityRare": "nadir",
+    "rarityCommon": "yaygın"
   },
   "premium": {
     "perfectMatch": "Mükemmel Uyum",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "DopaBrain Anasayfa"
+  },
+  "relatedTests": {
+    "animalPersonality": "Hayvan Kişilik Testi",
+    "colorPersonality": "Renk Kişilik Testi",
+    "mbtiLove": "MBTI Aşk Uyumu",
+    "rizzScore": "Rizz Puan Testi"
   },
   "recommendations": {
     "mbti": {

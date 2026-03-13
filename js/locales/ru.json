@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 Еженедельный график обучения",
     "idolAdvice": "Совет опытного кумира",
     "adMessage": "Просмотреть результат",
-    "resultSharedMessage": "Результат скопирован!"
+    "resultSharedMessage": "Результат скопирован!",
+    "relatedTests": "🧪 Попробуйте также эти тесты",
+    "percentileTitle": "📈 Ваша Редкость",
+    "percentileDesc": "Только <strong>{pct}%</strong> участников получили этот результат! Ваша позиция — {rarity} тип.",
+    "rarityVeryRare": "очень редкий",
+    "rarityRare": "редкий",
+    "rarityCommon": "обычный"
   },
   "premium": {
     "perfectMatch": "Идеальное совпадение",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "DopaBrain Главная"
+  },
+  "relatedTests": {
+    "animalPersonality": "Тест Личности Животного",
+    "colorPersonality": "Тест Личности по Цвету",
+    "mbtiLove": "Совместимость в Любви MBTI",
+    "rizzScore": "Тест Риз Балла"
   },
   "recommendations": {
     "mbti": {

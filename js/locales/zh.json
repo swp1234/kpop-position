@@ -39,7 +39,13 @@
     "weeklyRoutine": "📅 每周培训日程",
     "idolAdvice": "资深偶像的建议",
     "adMessage": "查看结果",
-    "resultSharedMessage": "结果已复制!"
+    "resultSharedMessage": "结果已复制!",
+    "relatedTests": "🧪 也试试这些测试吧",
+    "percentileTitle": "📈 你的稀有度",
+    "percentileDesc": "只有<strong>{pct}%</strong>的测试者得到了这个结果！你的职位是{rarity}类型。",
+    "rarityVeryRare": "非常稀有的",
+    "rarityRare": "稀有的",
+    "rarityCommon": "常见的"
   },
   "premium": {
     "perfectMatch": "完美匹配",
@@ -85,6 +91,12 @@
   },
   "game": {
     "back": "DopaBrain 首页"
+  },
+  "relatedTests": {
+    "animalPersonality": "动物性格测试",
+    "colorPersonality": "颜色性格测试",
+    "mbtiLove": "MBTI恋爱配对",
+    "rizzScore": "魅力值测试"
   },
   "recommendations": {
     "mbti": {
