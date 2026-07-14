@@ -311,6 +311,28 @@ body {
     margin-top: 16px;
 }
 
+.result-ad-container {
+    width: 100%;
+    min-height: 96px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 4px 0 2px;
+}
+
+.result-ad-container-bottom {
+    margin-top: 14px;
+}
+
+.kpop-result-ad {
+    width: 100%;
+    min-height: 90px;
+}
+
 /* ===================== QUESTION ===================== */
 .progress-bar {
     width: 100%;

@@ -9,6 +9,19 @@ const questionScreen = document.getElementById('question-screen');
 const loadingScreen = document.getElementById('loading-screen');
 const resultScreen = document.getElementById('result-screen');
 const adOverlay = document.getElementById('ad-overlay');
+const entryParams = new URLSearchParams(window.location.search);
+const autoStartRequested = ['1', 'true', 'yes'].includes((entryParams.get('start') || '').toLowerCase());
+const entrySurface = entryParams.get('surface') || entryParams.get('utm_content') || '';
+let hasStarted = false;
+
+function trackEvent(name, params = {}) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', name, Object.assign({
+        event_category: 'kpop_position',
+        entry_mode: autoStartRequested ? 'auto_start' : 'manual',
+        cta_surface: entrySurface || undefined
+    }, params));
+}
 
 // Theme toggle
 (function initTheme() {
@@ -56,6 +69,9 @@ const adOverlay = document.getElementById('ad-overlay');
             loader.classList.add('hidden');
             setTimeout(() => loader.remove(), 300);
         }
+        if (autoStartRequested) {
+            setTimeout(() => startTest('auto_start'), 350);
+        }
     }
 })();
 
@@ -75,6 +91,7 @@ function incrementTestCount() {
 }
 function updateTestCount() {
     const el = document.getElementById('test-count');
+    if (!el) return;
     const c = getTestCount();
     if (c > 0) {
         el.innerHTML = `<span class="count">${c.toLocaleString()}</span>${i18n?.t('premium.participantsCount') || 'have already participated!'} 🎤`;
@@ -83,16 +100,21 @@ function updateTestCount() {
 updateTestCount();
 
 // Start
-document.getElementById('btn-start').addEventListener('click', () => {
+document.getElementById('btn-start').addEventListener('click', () => startTest('manual'));
+
+function startTest(source = 'manual') {
+    if (hasStarted) return;
+    hasStarted = true;
     currentQ = 0;
     allScores = [];
     show(questionScreen);
     showQuestion();
-    if (typeof gtag === 'function') {
-        gtag('event', 'test_start', { event_category: 'kpop_position' });
-        gtag('event', 'engagement', { event_category: 'kpop_position', event_label: 'first_interaction' });
+    if (source === 'auto_start') {
+        trackEvent('kpop_position_auto_start', { event_label: entrySurface || 'direct_auto_start' });
     }
-});
+    trackEvent('test_start', { event_label: source });
+    trackEvent('engagement', { event_label: 'first_interaction' });
+}
 
 function showQuestion() {
     if (!QUESTIONS || !QUESTIONS[currentQ]) return;
@@ -165,6 +187,24 @@ function showLoading() {
     }, 400);
 }
 
+function loadResultAds() {
+    const slots = document.querySelectorAll('[data-kpop-result-ad]');
+    slots.forEach((slot, index) => {
+        if (slot.getAttribute('data-ad-loaded') === 'true') return;
+        try {
+            window.adsbygoogle = window.adsbygoogle || [];
+            window.adsbygoogle.push({});
+            slot.setAttribute('data-ad-loaded', 'true');
+            trackEvent('kpop_position_result_ad_impression', {
+                ad_surface: slot.closest('[data-ad-surface]')?.getAttribute('data-ad-surface') || 'kpop_position_result',
+                ad_index: index + 1
+            });
+        } catch (e) {
+            console.warn('Result ad load failed:', e);
+        }
+    });
+}
+
 function showResult() {
     // Calculate total scores for each position
     const totals = [0, 0, 0, 0, 0, 0, 0];
@@ -182,6 +222,14 @@ function showResult() {
     if (!RESULTS || !RESULTS[resultIndex]) return;
     resultData = RESULTS[resultIndex];
     show(resultScreen);
+    trackEvent('result_view', {
+        event_label: resultData.title,
+        result_type: resultData.titleEn || resultData.title
+    });
+    trackEvent('kpop_position_result_view', {
+        result_type: resultData.titleEn || resultData.title
+    });
+    setTimeout(loadResultAds, 250);
 
     // Update result color
     document.documentElement.style.setProperty('--result-color', resultData.color);
@@ -227,7 +275,7 @@ function showResult() {
     renderPercentile(resultIndex);
 
     incrementTestCount();
-    if (typeof gtag === 'function') gtag('event', 'test_complete', { event_category: 'kpop_position', event_label: resultData.title });
+    trackEvent('test_complete', { event_label: resultData.title });
 }
 
 function renderSpectrumBars(totals) {
@@ -579,6 +627,7 @@ function generateShareImage() {
 
 // Retry
 document.getElementById('btn-retry').addEventListener('click', () => {
+    hasStarted = false;
     const premiumContent = document.getElementById('premium-content');
     premiumContent.style.display = 'none';
     premiumContent.innerHTML = '';
