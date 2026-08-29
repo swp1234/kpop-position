@@ -1,34 +1,57 @@
-const CACHE_NAME = 'kpop-position-v3';
+const CACHE_NAME = 'kpop-position-v5';
 const ASSETS = [
     './',
     './index.html',
     './css/style.css',
     './js/data.js',
     './js/app.js',
+    './js/i18n.js',
+    './js/locales/en.json',
+    './js/locales/ko.json',
     './manifest.json',
     './icon-192.svg',
     './icon-512.svg'
 ];
+const STATIC_PATHS = new Set(
+    ASSETS.map(asset => new URL(asset, self.registration.scope).pathname)
+);
 
-self.addEventListener('install', e => {
-    self.skipWaiting();
-    e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));
+self.addEventListener('install', event => {
+    event.waitUntil((async () => {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.addAll(ASSETS);
+        await self.skipWaiting();
+    })());
 });
 
-self.addEventListener('activate', e => {
-    e.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
-        ).then(() => self.clients.claim())
-    );
+self.addEventListener('activate', event => {
+    event.waitUntil((async () => {
+        const keys = await caches.keys();
+        await Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)));
+        await self.clients.claim();
+    })());
 });
 
-self.addEventListener('fetch', e => {
-    e.respondWith(
-        fetch(e.request).then(r => {
-            const c = r.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(e.request, c));
-            return r;
-        }).catch(() => caches.match(e.request))
-    );
+self.addEventListener('fetch', event => {
+    const request = event.request;
+    const url = new URL(request.url);
+    if (
+        request.method !== 'GET' ||
+        url.origin !== self.location.origin ||
+        !STATIC_PATHS.has(url.pathname)
+    ) return;
+
+    const networkResponse = fetch(request);
+    event.waitUntil(networkResponse.then(async response => {
+        if (!response.ok) return;
+        const responseCopy = response.clone();
+        const cache = await caches.open(CACHE_NAME);
+        await cache.put(request, responseCopy);
+    }).catch(() => undefined));
+
+    event.respondWith(networkResponse.catch(async error => {
+            const cached = await caches.match(request, { ignoreSearch: true });
+            if (cached) return cached;
+            throw error;
+    }));
 });

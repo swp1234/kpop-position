@@ -3,12 +3,16 @@ let currentQ = 0;
 let allScores = [];
 let resultData = null;
 let resultIndex = -1;
+let resultTotals = [];
+let answerAdvanceTimer = null;
+let answerPending = false;
+let nextStartMode = 'manual';
+let currentEntryMode = 'manual';
 
 const introScreen = document.getElementById('intro-screen');
 const questionScreen = document.getElementById('question-screen');
 const loadingScreen = document.getElementById('loading-screen');
 const resultScreen = document.getElementById('result-screen');
-const adOverlay = document.getElementById('ad-overlay');
 const entryParams = new URLSearchParams(window.location.search);
 const autoStartRequested = ['1', 'true', 'yes'].includes((entryParams.get('start') || '').toLowerCase());
 const entrySurface = entryParams.get('surface') || entryParams.get('utm_content') || '';
@@ -18,9 +22,18 @@ function trackEvent(name, params = {}) {
     if (typeof gtag !== 'function') return;
     gtag('event', name, Object.assign({
         event_category: 'kpop_position',
-        entry_mode: autoStartRequested ? 'auto_start' : 'manual',
+        entry_mode: currentEntryMode,
         cta_surface: entrySurface || undefined
     }, params));
+}
+
+function announceStatus(message) {
+    const status = document.getElementById('quiz-status');
+    if (!status || !message) return;
+    status.textContent = '';
+    requestAnimationFrame(() => {
+        status.textContent = message;
+    });
 }
 
 // Theme toggle
@@ -29,36 +42,61 @@ function trackEvent(name, params = {}) {
     if (themeToggle) {
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        updateThemeButton();
         themeToggle.addEventListener('click', () => {
             const current = document.documentElement.getAttribute('data-theme');
             const next = current === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-            themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+            updateThemeButton();
         });
     }
 })();
 
+function updateThemeButton() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const labelKey = isLight ? 'app.switchToDark' : 'app.switchToLight';
+    const translatedLabel = typeof i18n !== 'undefined' ? i18n.t(labelKey) : labelKey;
+    themeToggle.textContent = isLight ? '🌙' : '☀️';
+    themeToggle.setAttribute('data-i18n-aria-label', labelKey);
+    if (translatedLabel !== labelKey) themeToggle.setAttribute('aria-label', translatedLabel);
+}
+
 // Initialize i18n
 (async function initI18n() {
     try {
-        const loaded = await i18n.loadTranslations(i18n.getCurrentLanguage());
-        if (loaded) i18n.updateUI();
+        await i18n.initialize();
+        applyQuizLanguage(i18n.getCurrentLanguage());
+        updateThemeButton();
         const langToggle = document.getElementById('lang-toggle');
         const langMenu = document.getElementById('lang-menu');
         const langOptions = document.querySelectorAll('.lang-option');
-        document.querySelector(`[data-lang="${i18n.getCurrentLanguage()}"]`)?.classList.add('active');
-        langToggle?.addEventListener('click', () => langMenu.classList.toggle('hidden'));
+        const setLanguageMenuOpen = (open) => {
+            langMenu?.classList.toggle('hidden', !open);
+            langToggle?.setAttribute('aria-expanded', String(open));
+        };
+        langToggle?.addEventListener('click', () => {
+            const willOpen = langMenu?.classList.contains('hidden');
+            setLanguageMenuOpen(Boolean(willOpen));
+            if (willOpen) document.querySelector('.lang-option.active')?.focus();
+        });
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.language-selector')) langMenu?.classList.add('hidden');
+            if (!e.target.closest('.language-selector')) setLanguageMenuOpen(false);
+        });
+        langMenu?.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                setLanguageMenuOpen(false);
+                langToggle?.focus();
+            }
         });
         langOptions.forEach(opt => {
             opt.addEventListener('click', async () => {
                 await i18n.setLanguage(opt.getAttribute('data-lang'));
-                langOptions.forEach(o => o.classList.remove('active'));
-                opt.classList.add('active');
-                langMenu.classList.add('hidden');
+                setLanguageMenuOpen(false);
+                langToggle?.focus();
             });
         });
     } catch (e) {
@@ -75,38 +113,42 @@ function trackEvent(name, params = {}) {
     }
 })();
 
+window.addEventListener('dopabrain:languagechange', event => {
+    applyQuizLanguage(event.detail?.lang || 'en');
+    updateThemeButton();
+    if (questionScreen.classList.contains('active') && !answerPending) {
+        showQuestion({ focusQuestion: false });
+    }
+    if (loadingScreen.classList.contains('active')) {
+        document.getElementById('loading-text').textContent = i18n.t('loading.text');
+    }
+    if (resultScreen.classList.contains('active') && resultIndex >= 0) {
+        resultData = RESULTS[resultIndex];
+        renderResultContent(resultTotals, { focusResult: false });
+    }
+});
+
 function show(screen) {
     [introScreen, questionScreen, loadingScreen, resultScreen].forEach(s => s.classList.remove('active'));
     screen.classList.add('active');
 }
 
-// Test count
-function getTestCount() {
-    return parseInt(localStorage.getItem('kpop_pos_test_count') || '0');
-}
-function incrementTestCount() {
-    const c = getTestCount() + 1;
-    localStorage.setItem('kpop_pos_test_count', c.toString());
-    updateTestCount();
-}
-function updateTestCount() {
-    const el = document.getElementById('test-count');
-    if (!el) return;
-    const c = getTestCount();
-    if (c > 0) {
-        el.innerHTML = `<span class="count">${c.toLocaleString()}</span>${i18n?.t('premium.participantsCount') || 'have already participated!'} 🎤`;
-    }
-}
-updateTestCount();
-
 // Start
-document.getElementById('btn-start').addEventListener('click', () => startTest('manual'));
+document.getElementById('btn-start').addEventListener('click', () => startTest(nextStartMode));
 
 function startTest(source = 'manual') {
     if (hasStarted) return;
+    if (answerAdvanceTimer !== null) clearTimeout(answerAdvanceTimer);
+    answerAdvanceTimer = null;
+    answerPending = false;
     hasStarted = true;
+    currentEntryMode = ['auto_start', 'retry'].includes(source) ? source : 'manual';
+    nextStartMode = 'manual';
     currentQ = 0;
     allScores = [];
+    resultData = null;
+    resultIndex = -1;
+    resultTotals = [];
     show(questionScreen);
     showQuestion();
     if (source === 'auto_start') {
@@ -116,13 +158,14 @@ function startTest(source = 'manual') {
     trackEvent('engagement', { event_label: 'first_interaction' });
 }
 
-function showQuestion() {
+function showQuestion({ focusQuestion = true } = {}) {
     if (!QUESTIONS || !QUESTIONS[currentQ]) return;
     const q = QUESTIONS[currentQ];
     const progress = ((currentQ + 1) / QUESTIONS.length) * 100;
     document.getElementById('progress-fill').style.width = progress + '%';
     document.getElementById('progress-text').textContent = `${currentQ + 1} / ${QUESTIONS.length}`;
-    document.getElementById('q-text').textContent = q.text;
+    const questionText = document.getElementById('q-text');
+    questionText.textContent = q.text;
 
     const optionsEl = document.getElementById('q-options');
     optionsEl.innerHTML = '';
@@ -131,6 +174,7 @@ function showQuestion() {
     const shuffled = [...q.options].sort(() => Math.random() - 0.5);
     shuffled.forEach((opt, i) => {
         const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'option-btn';
         btn.innerHTML = `<span class="opt-emoji">${opt.emoji}</span><span class="opt-text">${opt.text}</span>`;
         btn.addEventListener('click', () => selectOption(btn, opt.scores));
@@ -141,14 +185,25 @@ function showQuestion() {
     card.style.animation = 'none';
     card.offsetHeight;
     card.style.animation = 'slideIn 0.4s ease';
+
+    const announcement = i18n.t('accessibility.questionAnnouncement')
+        .replace('{current}', String(currentQ + 1))
+        .replace('{total}', String(QUESTIONS.length))
+        .replace('{question}', q.text);
+    announceStatus(announcement);
+    if (focusQuestion) requestAnimationFrame(() => questionText.focus());
 }
 
 function selectOption(btn, scores) {
+    if (answerPending) return;
+    answerPending = true;
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
     btn.classList.add('selected');
     allScores.push(scores);
 
-    setTimeout(() => {
+    answerAdvanceTimer = window.setTimeout(() => {
+        answerAdvanceTimer = null;
+        answerPending = false;
         currentQ++;
         if (currentQ < QUESTIONS.length) {
             showQuestion();
@@ -164,14 +219,6 @@ function showLoading() {
     const text = document.getElementById('loading-text');
     let progress = 0;
 
-    const messages = [
-        i18n?.t('premium.loadingMessages.msg1') || 'Analyzing position data...',
-        i18n?.t('premium.loadingMessages.msg2') || 'Matching idol DNA...',
-        i18n?.t('premium.loadingMessages.msg3') || 'Calculating stage compatibility...',
-        i18n?.t('premium.loadingMessages.msg4') || 'Confirming your K-POP position...',
-        i18n?.t('premium.loadingMessages.msg5') || 'Finding representative idols...'
-    ];
-
     const interval = setInterval(() => {
         progress += Math.random() * 15 + 5;
         if (progress >= 100) {
@@ -182,27 +229,28 @@ function showLoading() {
         } else {
             bar.style.width = progress + '%';
         }
-        const msgIdx = Math.min(Math.floor(progress / 20), messages.length - 1);
-        text.textContent = messages[msgIdx];
+        text.textContent = i18n?.t('loading.text') || 'Comparing your answer scores...';
     }, 400);
 }
 
-function loadResultAds() {
-    const slots = document.querySelectorAll('[data-kpop-result-ad]');
-    slots.forEach((slot, index) => {
-        if (slot.getAttribute('data-ad-loaded') === 'true') return;
-        try {
-            window.adsbygoogle = window.adsbygoogle || [];
-            window.adsbygoogle.push({});
-            slot.setAttribute('data-ad-loaded', 'true');
-            trackEvent('kpop_position_result_ad_impression', {
-                ad_surface: slot.closest('[data-ad-surface]')?.getAttribute('data-ad-surface') || 'kpop_position_result',
-                ad_index: index + 1
-            });
-        } catch (e) {
-            console.warn('Result ad load failed:', e);
-        }
-    });
+function selectResultIndex(totals) {
+    const maxScore = Math.max(...totals);
+    const tiedIndices = totals
+        .map((score, index) => ({ score, index }))
+        .filter(item => item.score === maxScore)
+        .map(item => item.index);
+    if (tiedIndices.length === 1) return { index: tiedIndices[0], tiedCount: 1 };
+
+    const signature = allScores.map(scores => scores.join(',')).join('|');
+    let hash = 2166136261;
+    for (let index = 0; index < signature.length; index++) {
+        hash ^= signature.charCodeAt(index);
+        hash = Math.imul(hash, 16777619) >>> 0;
+    }
+    return {
+        index: tiedIndices[hash % tiedIndices.length],
+        tiedCount: tiedIndices.length
+    };
 }
 
 function showResult() {
@@ -212,70 +260,52 @@ function showResult() {
         s.forEach((val, i) => { totals[i] += val; });
     });
 
-    // Find dominant position
-    let maxScore = 0;
-    resultIndex = 0;
-    totals.forEach((s, i) => {
-        if (s > maxScore) { maxScore = s; resultIndex = i; }
-    });
+    // Choose the highest score. A deterministic answer hash resolves only exact ties.
+    const selection = selectResultIndex(totals);
+    resultIndex = selection.index;
 
     if (!RESULTS || !RESULTS[resultIndex]) return;
     resultData = RESULTS[resultIndex];
+    resultTotals = totals;
     show(resultScreen);
     trackEvent('result_view', {
-        event_label: resultData.title,
+        event_label: resultData.titleEn,
         result_type: resultData.titleEn || resultData.title
     });
     trackEvent('kpop_position_result_view', {
-        result_type: resultData.titleEn || resultData.title
+        result_type: resultData.titleEn || resultData.title,
+        tied_labels: selection.tiedCount
     });
-    setTimeout(loadResultAds, 250);
+
+    renderResultContent(totals);
+    trackEvent('test_complete', { event_label: resultData.titleEn });
+}
+
+function renderResultContent(totals, { focusResult = true } = {}) {
+    if (!resultData) return;
 
     // Update result color
     document.documentElement.style.setProperty('--result-color', resultData.color);
 
     // Result display
     document.getElementById('result-emoji').textContent = resultData.emoji;
-    document.getElementById('result-title').textContent = resultData.title;
-    document.getElementById('result-en').textContent = resultData.titleEn;
-    document.getElementById('result-subtitle').textContent = resultData.subtitle;
-    document.getElementById('result-desc').textContent = resultData.desc;
-
-    // Traits
-    const traitsEl = document.getElementById('result-traits');
-    traitsEl.innerHTML = resultData.traits.map(t => `<li>${t}</li>`).join('');
-
-    // Idol list
-    const idolsEl = document.getElementById('result-idols');
-    idolsEl.innerHTML = resultData.idols.map(idol =>
-        `<div class="idol-chip">
-            <span class="idol-name">${idol.name}</span>
-            <span class="idol-group">${idol.group}</span>
-        </div>`
-    ).join('');
-
-    // Real life
-    document.getElementById('result-reallife').textContent = resultData.realLife;
-
-    // Best match
-    document.getElementById('best-match-emoji').textContent = resultData.bestMatchEmoji;
-    document.getElementById('best-match-name').textContent = resultData.bestMatch;
-    document.getElementById('best-match-reason').textContent = resultData.bestMatchReason;
-
-    // Tip
-    document.getElementById('result-tip').textContent = resultData.tip;
+    const resultTitle = document.getElementById('result-title');
+    resultTitle.textContent = resultData.title;
+    document.getElementById('result-en').textContent = i18n.getCurrentLanguage() === 'ko'
+        ? resultData.titleEn
+        : i18n.t('result.roleLabel');
+    document.getElementById('result-subtitle').textContent = i18n.t('result.subtitle');
+    document.getElementById('result-desc').textContent = i18n.t('result.descriptionTemplate')
+        .replace('{type}', resultData.title);
 
     // Spectrum bars
     renderSpectrumBars(totals);
 
-    // Group matching
-    renderGroupMatch();
-
-    // Percentile stat
-    renderPercentile(resultIndex);
-
-    incrementTestCount();
-    trackEvent('test_complete', { event_label: resultData.title });
+    const announcement = i18n.t('accessibility.resultAnnouncement')
+        .replace('{type}', resultData.title)
+        .replace('{detail}', i18n.t('boundary.result'));
+    announceStatus(announcement);
+    if (focusResult) requestAnimationFrame(() => resultTitle.focus());
 }
 
 function renderSpectrumBars(totals) {
@@ -288,8 +318,10 @@ function renderSpectrumBars(totals) {
         const isActive = i === resultIndex;
         const bar = document.createElement('div');
         bar.className = 'spectrum-bar' + (isActive ? ' active' : '');
+        bar.setAttribute('role', 'img');
+        bar.setAttribute('aria-label', `${label}: ${pct}%`);
         bar.innerHTML = `
-            <div class="bar-label">${RESULTS[i].emoji}</div>
+            <div class="bar-label" title="${label}" aria-hidden="true">${RESULTS[i].emoji}</div>
             <div class="bar-track">
                 <div class="bar-fill" style="height:${pct}%;background:${RESULTS[i].color};transition-delay:${i * 0.1}s"></div>
             </div>
@@ -303,144 +335,96 @@ function renderSpectrumBars(totals) {
     }, 100);
 }
 
-function renderGroupMatch() {
-    const container = document.getElementById('group-match');
-    container.innerHTML = '';
-
-    // Find matching members from each group
-    const myPosition = POS_LABELS[resultIndex];
-    KPOP_GROUPS.forEach(group => {
-        const match = group.members.find(m => m.position === myPosition);
-        if (match) {
-            const chip = document.createElement('div');
-            chip.className = 'group-chip';
-            chip.innerHTML = `
-                <span class="group-name">${group.name}</span>
-                <span class="group-member">${match.name} ${match.emoji}</span>
-            `;
-            container.appendChild(chip);
-        }
-    });
-}
-
-// Percentile stat - simulated rarity based on position distribution
-function renderPercentile(posIdx) {
-    // Approximate distribution: some positions rarer than others
-    const distribution = [18, 15, 14, 16, 12, 10, 15]; // vocal, leader, rapper, dancer, visual, maknae, allrounder
-    const pct = distribution[posIdx] || 14;
-    const percentileEl = document.getElementById('percentile-text');
-    if (percentileEl) {
-        const template = i18n?.t('result.percentileDesc') ||
-            'Only <strong>{pct}%</strong> of test takers got this result! Your position is {rarity}.';
-        const rarity = pct <= 12
-            ? (i18n?.t('result.rarityVeryRare') || 'very rare')
-            : pct <= 15
-            ? (i18n?.t('result.rarityRare') || 'rare')
-            : (i18n?.t('result.rarityCommon') || 'common');
-        percentileEl.innerHTML = template.replace('{pct}', pct).replace('{rarity}', rarity);
-    }
-}
-
-// Premium
-document.getElementById('btn-premium').addEventListener('click', () => {
-    adOverlay.classList.add('active');
-    let countdown = 5;
-    const countEl = document.getElementById('ad-countdown');
-    const closeBtn = document.getElementById('ad-close');
-    countEl.textContent = countdown;
-    closeBtn.style.display = 'none';
-
-    const timer = setInterval(() => {
-        countdown--;
-        countEl.textContent = countdown;
-        if (countdown <= 0) {
-            clearInterval(timer);
-            closeBtn.style.display = 'block';
-        }
-    }, 1000);
-
-    if (typeof gtag === 'function') gtag('event', 'premium_click', { event_category: 'kpop_position' });
-});
-
-document.getElementById('ad-close').addEventListener('click', () => {
-    adOverlay.classList.remove('active');
-    displayPremiumContent();
-});
-
-function displayPremiumContent() {
-    if (!resultData || !PREMIUM_ADVICE || !PREMIUM_ADVICE[resultIndex] || !COMPATIBILITY || !COMPATIBILITY[resultIndex]) return;
-    const premiumCard = document.getElementById('premium-content');
-    premiumCard.style.display = 'block';
-
-    const advice = PREMIUM_ADVICE[resultIndex];
-
-    // Compatibility chart
-    let compatHTML = `<div class="detail-section"><h3>${i18n?.t('premium.compatibilityChart') || '💞 Position Compatibility Chart'}</h3><div class="compat-grid">`;
-    const myCompat = COMPATIBILITY[resultIndex];
-    const sortedCompat = POS_LABELS.map((label, i) => ({ label, score: myCompat[i], result: RESULTS[i] }))
-        .sort((a, b) => b.score - a.score);
-
-    sortedCompat.forEach(c => {
-        const level = c.score >= 90 ? (i18n?.t('premium.perfectMatch') || 'Perfect Match') :
-                      c.score >= 75 ? (i18n?.t('premium.good') || 'Good') :
-                      c.score >= 60 ? (i18n?.t('premium.normal') || 'Normal') :
-                      (i18n?.t('premium.needsEffort') || 'Needs Effort');
-        const levelClass = c.score >= 90 ? 'perfect' : c.score >= 75 ? 'good' : c.score >= 60 ? 'normal' : 'low';
-        compatHTML += `<div class="compat-item ${levelClass}">
-            <span class="compat-emoji">${c.result.emoji}</span>
-            <span class="compat-label">${c.label}</span>
-            <div class="compat-bar-bg"><div class="compat-bar" style="width:${c.score}%;background:${c.result.color}"></div></div>
-            <span class="compat-score">${c.score}%</span>
-            <span class="compat-level">${level}</span>
-        </div>`;
-    });
-    compatHTML += '</div></div>';
-
-    // Training tips
-    let tipsHTML = `<div class="detail-section"><h3>${i18n?.t('premium.trainingTips') || '🎯 Training Tips'}</h3><ul>`;
-    advice.trainingTips.forEach(t => { tipsHTML += `<li>${t}</li>`; });
-    tipsHTML += '</ul></div>';
-
-    // Career paths
-    let careerHTML = `<div class="detail-section"><h3>${i18n?.t('premium.careerPaths') || '💼 Recommended Careers'}</h3><div class="career-chips">`;
-    advice.careerPaths.forEach(c => { careerHTML += `<span class="career-chip">${c}</span>`; });
-    careerHTML += '</div></div>';
-
-    // Weekly routine
-    let routineHTML = `<div class="detail-section"><h3>${i18n?.t('premium.weeklyRoutine') || '📅 Weekly Training Routine'}</h3><ul>`;
-    advice.weeklyRoutine.forEach(r => { routineHTML += `<li>${r}</li>`; });
-    routineHTML += '</ul></div>';
-
-    // Idol advice
-    let idolAdviceHTML = `<div class="detail-section"><h3>${resultData.emoji} ${i18n?.t('premium.idolAdvicePrefix') || "Senior Idol's Advice"}</h3><p class="idol-advice">"${advice.idolAdvice}"</p></div>`;
-
-    premiumCard.innerHTML = compatHTML + tipsHTML + careerHTML + routineHTML + idolAdviceHTML;
-    premiumCard.scrollIntoView({ behavior: 'smooth' });
-
-    if (typeof gtag === 'function') gtag('event', 'premium_view', { event_category: 'kpop_position' });
-}
-
 // Share - 향상된 버전
 function getShareText() {
     if (!resultData) return { title: '', text: '', url: '' };
-    const fullTextTemplate = i18n.t('premium.shareText') || `🎤 My K-POP Position: {emoji} {title}\n{subtitle}\n\nRepresentative Idols: {idols}\n\nWhat's your position? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest`;
-    const fullText = fullTextTemplate
-        .replace('{emoji}', resultData.emoji)
-        .replace('{title}', resultData.title)
-        .replace('{subtitle}', resultData.subtitle)
-        .replace('{idols}', resultData.idols.slice(0, 3).map(i => i.name).join(', '));
+    const inviteTemplate = i18n.t('share.inviteText');
+    const title = inviteTemplate && inviteTemplate !== 'share.inviteText'
+        ? inviteTemplate.replace('{type}', resultData.title).replace('{emoji}', resultData.emoji)
+        : `My playful K-POP role label is ${resultData.titleEn} ${resultData.emoji}`;
+    const shareUrl = `https://dopabrain.com/kpop-position/${i18n.getCurrentLanguage() === 'ko' ? '?lang=ko' : ''}`;
+    const fullText = `${title}\n${i18n.t('boundary.result')}\n\n${shareUrl}`;
     return {
-        title: i18n.t('share.inviteText').replace('{type}', resultData.title).replace('{emoji}', resultData.emoji),
+        title,
         shortText: `🎤 ${resultData.title} ${resultData.emoji}`,
-        fullText: fullText,
-        url: 'https://dopabrain.com/kpop-position/'
+        fullText,
+        url: shareUrl
     };
 }
 
+let shareReturnFocus = null;
+
 function shareResult() {
     const shareModal = document.getElementById('share-modal');
+    setShareFeedback('');
+    shareReturnFocus = document.activeElement;
     shareModal.classList.remove('hidden');
-    if (typeof gtag === 'function') gtag('event', 'share_modal_open', { event_category: 'kpop_position' });
+    shareModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    requestAnimationFrame(() => document.getElementById('share-close')?.focus());
+    trackEvent('share_modal_open');
+}
+
+function closeShareModal() {
+    const shareModal = document.getElementById('share-modal');
+    if (!shareModal || shareModal.classList.contains('hidden')) return;
+    shareModal.classList.add('hidden');
+    shareModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (shareReturnFocus instanceof HTMLElement && shareReturnFocus.isConnected) {
+        shareReturnFocus.focus();
+    }
+    shareReturnFocus = null;
+}
+
+function setShareFeedback(messageOrKey) {
+    const feedback = document.getElementById('share-feedback');
+    if (!feedback) return;
+    if (!messageOrKey) {
+        feedback.textContent = '';
+        return;
+    }
+    const translated = i18n.t(messageOrKey);
+    feedback.textContent = translated === messageOrKey ? messageOrKey : translated;
+}
+
+function openShareIntent(url, method) {
+    const popup = window.open('', '_blank', 'width=550,height=420');
+    if (!popup) {
+        setShareFeedback('share.shareUnavailable');
+        return false;
+    }
+    try {
+        popup.opener = null;
+        popup.location.href = url;
+    } catch (error) {
+        popup.close?.();
+        setShareFeedback('share.shareUnavailable');
+        return false;
+    }
+    setShareFeedback('');
+    trackEvent('share', { method });
+    return true;
+}
+
+async function copyShareText(text, shareSource, shareTarget) {
+    if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+        setShareFeedback('share.copyUnavailable');
+        return false;
+    }
+    try {
+        await navigator.clipboard.writeText(text);
+        setShareFeedback('share.copied');
+        trackEvent('share', {
+            method: 'copy_link',
+            share_source: shareSource,
+            share_target: shareTarget
+        });
+        return true;
+    } catch (error) {
+        setShareFeedback('share.copyUnavailable');
+        return false;
+    }
 }
 
 // 공유 버튼 이벤트 (resultData가 null일 수 있으므로 클릭 시점에 getShareText 호출)
@@ -449,11 +433,33 @@ function setupShareButtons() {
     const shareClose = document.getElementById('share-close');
 
     // 모달 닫기
-    shareClose?.addEventListener('click', () => {
-        shareModal?.classList.add('hidden');
-    });
+    shareClose?.addEventListener('click', closeShareModal);
     shareModal?.addEventListener('click', (e) => {
-        if (e.target === shareModal) shareModal.classList.add('hidden');
+        if (e.target === shareModal) closeShareModal();
+    });
+    shareModal?.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeShareModal();
+            return;
+        }
+        if (event.key !== 'Tab') return;
+        const focusable = [...shareModal.querySelectorAll(
+            'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )].filter(element => element.getAttribute('aria-hidden') !== 'true');
+        if (!focusable.length) {
+            event.preventDefault();
+            return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     });
 
     // 트위터 공유
@@ -462,8 +468,7 @@ function setupShareButtons() {
         const shareData = getShareText();
         const text = encodeURIComponent(shareData.title);
         const url = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(shareData.url)}`;
-        window.open(url, '_blank', 'width=550,height=420');
-        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'twitter' });
+        openShareIntent(url, 'twitter');
     });
 
     // 페이스북 공유
@@ -471,44 +476,45 @@ function setupShareButtons() {
         if (!resultData) return;
         const shareData = getShareText();
         const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`;
-        window.open(url, '_blank', 'width=550,height=420');
-        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'facebook' });
+        openShareIntent(url, 'facebook');
     });
 
     // 카카오톡 공유 (URL만 공유)
-    document.getElementById('share-kakaotalk')?.addEventListener('click', () => {
+    document.getElementById('share-kakaotalk')?.addEventListener('click', async () => {
         if (!resultData) return;
         const shareData = getShareText();
-        navigator.clipboard.writeText(shareData.url).then(() => {
-            alert(i18n.t('share.copied'));
-        }).catch(() => {});
-        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'kakaotalk' });
+        await copyShareText(shareData.url, 'kakao_button', 'kakaotalk');
     });
 
     // 링크 복사
-    document.getElementById('share-copy')?.addEventListener('click', () => {
+    document.getElementById('share-copy')?.addEventListener('click', async () => {
         if (!resultData) return;
         const shareData = getShareText();
-        navigator.clipboard.writeText(`${shareData.title}\n${shareData.url}`).then(() => {
-            alert(i18n.t('share.copied'));
-        }).catch(() => {});
-        if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'copy' });
+        await copyShareText(
+            `${shareData.title}\n${shareData.url}`,
+            'copy_button',
+            'clipboard'
+        );
     });
 
     // 네이티브 공유
-    document.getElementById('share-native')?.addEventListener('click', () => {
+    document.getElementById('share-native')?.addEventListener('click', async () => {
         if (!resultData) return;
         const shareData = getShareText();
-        if (navigator.share) {
-            navigator.share({
+        if (typeof navigator.share !== 'function') {
+            setShareFeedback('share.shareUnavailable');
+            return;
+        }
+        try {
+            await navigator.share({
                 title: shareData.title,
                 text: shareData.fullText,
                 url: shareData.url
-            }).then(() => {
-                if (typeof gtag === 'function') gtag('event', 'share', { event_category: 'kpop_position', method: 'native' });
-            }).catch(() => {});
-        } else {
-            alert(i18n.t('share.copied'));
+            });
+            setShareFeedback('');
+            trackEvent('share', { method: 'native' });
+        } catch (error) {
+            setShareFeedback('share.shareUnavailable');
         }
     });
 }
@@ -558,7 +564,7 @@ function generateShareImage() {
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
     ctx.font = '600 36px -apple-system, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(i18n?.t('premium.myPosition') || 'My K-POP Position is', w / 2, 120);
+    ctx.fillText(i18n.t('canvas.topLabel'), w / 2, 120);
 
     // Emoji (stage presence)
     ctx.font = '130px sans-serif';
@@ -574,21 +580,11 @@ function generateShareImage() {
     ctx.font = '400 32px -apple-system, sans-serif';
     ctx.fillText(resultData.titleEn, w / 2, 480);
 
-    // Position subtitle
+    // Result boundary
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
-    ctx.font = '400 30px -apple-system, sans-serif';
-    ctx.fillText(resultData.subtitle, w / 2, 540);
-
-    // Idol references (top 3)
-    ctx.fillStyle = 'rgba(255,255,255,0.7)';
     ctx.font = '400 26px -apple-system, sans-serif';
-    const topIdols = resultData.idols.slice(0, 3).map(i => i.name).join(' · ');
-    ctx.fillText((i18n?.t('premium.topIdolLabel') || 'Representative Idols: ') + topIdols, w / 2, 610);
-
-    // Best match
-    ctx.fillStyle = 'rgba(255,255,255,0.75)';
-    ctx.font = 'bold 28px -apple-system, sans-serif';
-    ctx.fillText(`${i18n?.t('premium.bestMatchLabel') || '💕 Perfect Match: '} ${resultData.bestMatchEmoji} ${resultData.bestMatch}`, w / 2, 680);
+    ctx.fillText(i18n.t('canvas.boundary1'), w / 2, 560);
+    ctx.fillText(i18n.t('canvas.boundary2'), w / 2, 610);
 
     // Divider line (stage lights)
     ctx.strokeStyle = 'rgba(255,255,255,0.25)';
@@ -601,20 +597,20 @@ function generateShareImage() {
     // CTA (call to action)
     ctx.fillStyle = 'rgba(255,255,255,0.6)';
     ctx.font = '400 28px -apple-system, sans-serif';
-    ctx.fillText(i18n?.t('premium.whatPosition') || "What's your position? 👇", w / 2, 810);
+    ctx.fillText(i18n.t('canvas.cta'), w / 2, 810);
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
     ctx.font = '400 24px -apple-system, sans-serif';
-    ctx.fillText(i18n?.t('premium.shareTitle') || 'K-POP Position Test', w / 2, 860);
+    ctx.fillText('dopabrain.com/kpop-position/', w / 2, 860);
 
     // Hashtags
     ctx.fillStyle = 'rgba(255,255,255,0.4)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText(i18n?.t('premium.hashtags') || '#KPOPPosition #Idol #KPOPTest', w / 2, 920);
+    ctx.fillText(i18n.t('canvas.hashtags'), w / 2, 920);
 
     // Branding (DopaBrain)
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
     ctx.font = '400 22px -apple-system, sans-serif';
-    ctx.fillText(i18n?.t('premium.brandName') || '🎤 DopaBrain', w / 2, 1020);
+    ctx.fillText('🎤 DopaBrain', w / 2, 1020);
 
     // Download
     const link = document.createElement('a');
@@ -622,17 +618,27 @@ function generateShareImage() {
     link.href = canvas.toDataURL('image/png');
     link.click();
 
-    if (typeof gtag === 'function') gtag('event', 'save_image', { event_category: 'kpop_position' });
+    trackEvent('save_image');
 }
 
 // Retry
 document.getElementById('btn-retry').addEventListener('click', () => {
+    const previousResult = resultData?.titleEn || undefined;
+    closeShareModal();
+    if (answerAdvanceTimer !== null) clearTimeout(answerAdvanceTimer);
+    answerAdvanceTimer = null;
+    answerPending = false;
     hasStarted = false;
-    const premiumContent = document.getElementById('premium-content');
-    premiumContent.style.display = 'none';
-    premiumContent.innerHTML = '';
+    currentQ = 0;
+    allScores = [];
+    resultData = null;
+    resultIndex = -1;
+    resultTotals = [];
+    currentEntryMode = 'retry';
+    nextStartMode = 'retry';
     show(introScreen);
-    updateTestCount();
+    trackEvent('test_retry', { previous_result: previousResult });
+    document.getElementById('btn-start')?.focus();
 });
 
 // 공유 버튼 초기화

@@ -1,96 +1,45 @@
 {
   "app": {
-    "title": "K-POP Position Test - What's Your Idol Position?",
-    "description": "Discover your K-POP position through 12 questions! Main Vocal, Leader, Rapper, Dancer, Visual, Maknae, or All-Rounder? Find matching idols and more!"
+    "title": "K-POP Role Quiz - Playful 12-Question Test | DopaBrain",
+    "description": "Take a playful 12-question K-POP role quiz and compare your answer scores across seven role labels. For entertainment only; not an official role, personality test, or talent assessment.",
+    "ogDescription": "A just-for-fun K-POP role result based on your 12 answers. Role labels vary and this is not an official or talent assessment.",
+    "skipLink": "Skip to main content",
+    "loading": "Loading…",
+    "changeLanguage": "Change language",
+    "languageMenu": "Language",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "boundary": {
+    "intro": "Playful entertainment quiz · not an official role, personality test, or talent assessment.",
+    "result": "This result describes only the answer pattern in this attempt. It is not an official K-POP role or a personality or talent assessment.",
+    "spectrum": "These bars compare only your 12 answers. They are relative scores, not population percentiles.",
+    "tieRule": "If labels tie, a deterministic hash of this attempt's answer sequence chooses among only the tied labels. The same answers produce the same result, and the first label is not automatically favored."
   },
   "intro": {
-    "title": "K-POP Position Test",
-    "subtitle": "Which K-POP idol position are you?<br>Find out with 12 fun questions!",
+    "title": "K-POP Role Quiz",
+    "subtitle": "Which K-POP-inspired role label will your answers score highest?",
     "meta1": "12 Questions",
     "meta2": "About 2 min",
-    "meta3": "7 Positions",
-    "startBtn": "Find My Position - It's Free",
+    "meta3": "7 Role Labels",
+    "startBtn": "Start the Quiz",
     "previewLabel": "Q1.",
     "previewQuestion": "When you go to karaoke with friends, what do you do?",
-    "participantsText": "people have participated!",
-    "socialProof": "2,400+ people discovered their position 🎤",
-    "microCopy": "About 2 min · Instant shareable results"
+    "microCopy": "About 2 min · Instant shareable result"
   },
   "loading": {
-    "text": "Analyzing position data..."
+    "text": "Comparing your answer scores…"
   },
   "result": {
-    "analysis": "📋 Position Analysis",
-    "traits": "🔥 Key Traits",
-    "idols": "🌟 Idols with Same Position",
-    "groupMatch": "🎵 Your Position in K-POP Groups",
-    "spectrum": "📊 Position Compatibility",
-    "realLife": "💼 Real Life Application",
-    "bestMatch": "💞 Perfect Match Position",
-    "tip": "💡 Advice",
-    "premiumBtn": "🔓 AI Deep Analysis (Compatibility Chart, Training Tips, Career Paths)",
+    "playfulHeading": "🎤 Playful result",
+    "spectrumHeading": "📊 Answer score spectrum",
+    "subtitle": "Playful answer-pattern match",
+    "descriptionTemplate": "Your choices gave the highest total to the “{type}” label in this quiz.",
+    "roleLabel": "K-POP-inspired score label",
     "shareBtn": "📤 Share Result",
     "saveImageBtn": "📸 Save Image",
     "retryBtn": "🔄 Try Again",
-    "recommendations": "Try These Too",
-    "compatibilityChart": "💞 Position Compatibility Chart",
-    "trainingTips": "🎯 Training Tips",
-    "careerPaths": "💼 Recommended Careers",
-    "weeklyRoutine": "📅 Weekly Training Routine",
-    "idolAdvice": "Senior Idol's Advice",
-    "adMessage": "View Result",
-    "resultSharedMessage": "Result copied!",
-    "relatedTests": "🧪 Try These Tests Too",
-    "percentileTitle": "📈 Your Rarity",
-    "percentileDesc": "Only <strong>{pct}%</strong> of test takers got this result! Your position is {rarity}.",
-    "rarityVeryRare": "very rare",
-    "rarityRare": "rare",
-    "rarityCommon": "common"
-  },
-  "premium": {
-    "perfectMatch": "Perfect Match",
-    "good": "Good",
-    "normal": "Normal",
-    "needsEffort": "Needs Effort",
-    "participantsCount": "people have participated!",
-    "loadingMessages": {
-      "msg1": "Analyzing position data...",
-      "msg2": "Matching idol DNA...",
-      "msg3": "Calculating stage compatibility...",
-      "msg4": "Confirming your K-POP position...",
-      "msg5": "Finding representative idols..."
-    },
-    "compatibilityChart": "💞 Position Compatibility Chart",
-    "trainingTips": "🎯 Training Tips",
-    "careerPaths": "💼 Recommended Careers",
-    "weeklyRoutine": "📅 Weekly Training Routine",
-    "idolAdvicePrefix": "Senior Idol's Advice",
-    "shareText": "🎤 My K-POP Position: {emoji} {title}\n{subtitle}\n\nRepresentative Idols: {idols}\n\nWhat's your position? 👇\nhttps://dopabrain.com/kpop-position/\n\n#KPOPPosition #IdolTest #KPOPTest",
-    "myPosition": "My K-POP Position is",
-    "whatPosition": "What's your position? 👇",
-    "shareTitle": "K-POP Position Test",
-    "hashtags": "#KPOPPosition #Idol #KPOPTest",
-    "brandName": "🎤 DopaBrain",
-    "topIdolLabel": "Representative Idols: ",
-    "bestMatchLabel": "💕 Perfect Match: "
-  },
-  "share": {
-    "title": "Share Your K-POP Position!",
-    "subtitle": "Share with friends and compare your positions 🎤",
-    "nativeShare": "📤 Native Share",
-    "shareModal": "Share",
-    "shareClose": "Close",
-    "twitter": "𝕏 Twitter",
-    "facebook": "Facebook",
-    "kakaotalk": "KakaoTalk",
-    "copyLink": "Copy Link",
-    "copied": "Copied to clipboard! 🎤",
-    "compareWith": "🤝 Compare with Friend",
-    "inviteText": "My K-POP position is {type}! {emoji} Test yours too! 👇",
-    "or": "or"
-  },
-  "game": {
-    "back": "DopaBrain Home"
+    "relatedTests": "🧪 Try These Tests Too"
   },
   "relatedTests": {
     "animalPersonality": "Animal Personality",
@@ -98,36 +47,48 @@
     "mbtiLove": "MBTI Love Match",
     "rizzScore": "Rizz Score Test"
   },
-  "recommendations": {
-    "mbti": {
-      "name": "MBTI 연애 궁합",
-      "desc": "나와 찰떡인 MBTI 유형은?"
-    },
-    "lovefreq": {
-      "name": "사랑 주파수 테스트",
-      "desc": "나의 사랑 주파수는 몇 Hz?"
-    },
-    "emotion": {
-      "name": "감정 온도계 테스트",
-      "desc": "나의 감정 온도는 몇 도?"
-    },
-    "pastlife": {
-      "name": "전생 직업 테스트",
-      "desc": "나의 전생은 어떤 직업?"
-    }
+  "share": {
+    "title": "Share Your Playful Result",
+    "subtitle": "Invite a friend to compare answer-score patterns 🎤",
+    "nativeShare": "📤 Share from this device",
+    "shareClose": "Close share dialog",
+    "twitter": "𝕏 / Twitter",
+    "facebook": "Facebook",
+    "copyForKakao": "Copy for KakaoTalk",
+    "copyLink": "Copy Link",
+    "copied": "Copied to clipboard! 🎤",
+    "copyUnavailable": "Clipboard access is unavailable. No link was copied.",
+    "shareUnavailable": "Sharing did not complete or is unavailable. Nothing was shared.",
+    "compareWith": "🤝 Compare this just-for-fun result with a friend",
+    "inviteText": "My playful K-POP role label is {type}! {emoji} Try the quiz too 👇",
+    "or": "or"
   },
   "engage": {
-    "result1": "Main Vocal -- Powerful Voice",
-    "result2": "Lead Dancer -- Choreography Master",
-    "result3": "Visual -- Face of the Group",
-    "result4": "All-Rounder -- Multi-Talented Star",
-    "socialProof": "2,400+ positions discovered today"
+    "result1": "Main Vocal — vocal-role score",
+    "result2": "Main Dancer — dance-role score",
+    "result3": "Visual — styling-role score",
+    "result4": "All-Rounder — versatility score"
   },
   "about": {
-    "toggle": "About the K-POP Position Test",
-    "heading1": "How the K-POP Position Test Works",
-    "text1": "The K-POP Position Test asks 12 fun questions about your personality and creative preferences. It analyzes which of the 7 classic idol positions best matches you and pairs you with real K-POP idols.",
-    "heading2": "What Your K-POP Position Says About You",
-    "text2": "Your position reveals your natural role in group settings. Main Vocals are confident performers, Dancers are dedicated perfectionists, and Visuals are charming communicators."
+    "toggle": "About the K-POP Role Quiz",
+    "heading1": "How this playful quiz works",
+    "text1": "Each of the 12 answers adds points to seven K-POP-inspired role labels. The result shows the label with the highest total and a relative score spectrum for this attempt.",
+    "tieRule": "If labels tie, a deterministic hash of this attempt's answer sequence chooses among only the tied labels. Repeating the same answers gives the same result, and the first label is not automatically favored.",
+    "heading2": "What this result does not mean",
+    "text2": "Role labels vary across groups and eras. This game does not test singing, dancing, appearance, age, personality, or professional potential. Results are not official member positions and DopaBrain is not affiliated with any artist or agency."
+  },
+  "accessibility": {
+    "questionAnnouncement": "Question {current} of {total}: {question}",
+    "resultAnnouncement": "Result: {type}. {detail}"
+  },
+  "canvas": {
+    "topLabel": "MY PLAYFUL K-POP ROLE LABEL",
+    "boundary1": "Based only on this attempt's 12 answer scores",
+    "boundary2": "Not an official role, personality test, or talent assessment",
+    "cta": "Try the playful role quiz 👇",
+    "hashtags": "#KPOPRoleQuiz #JustForFun"
+  },
+  "game": {
+    "back": "DopaBrain Home"
   }
 }
