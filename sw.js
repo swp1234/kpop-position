@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kpop-position-v5';
+const CACHE_NAME = 'kpop-position-v6';
 const ASSETS = [
     './',
     './index.html',
@@ -6,8 +6,18 @@ const ASSETS = [
     './js/data.js',
     './js/app.js',
     './js/i18n.js',
+    './js/locales/de.json',
     './js/locales/en.json',
+    './js/locales/es.json',
+    './js/locales/fr.json',
+    './js/locales/hi.json',
+    './js/locales/id.json',
+    './js/locales/ja.json',
     './js/locales/ko.json',
+    './js/locales/pt.json',
+    './js/locales/ru.json',
+    './js/locales/tr.json',
+    './js/locales/zh.json',
     './manifest.json',
     './icon-192.svg',
     './icon-512.svg'
