@@ -1,0 +1,124 @@
+{
+  "name": "中文",
+  "app": {
+    "title": "K-POP 担当测试 - 测测你在爱豆组合中的定位 | DopaBrain",
+    "description": "通过12道情境趣味测试，探索你在K-POP偶像组合中的定位：主唱、主舞、主Rapper、队长、门面、忙内还是全能ACE？",
+    "ogDescription": "如果进入K-POP偶像团体，你会是什么担当？12道题测出最适合你的偶像角色。",
+    "skipLink": "跳至主内容",
+    "loading": "加载中…",
+    "changeLanguage": "切换语言",
+    "languageMenu": "语言",
+    "switchToLight": "切换至浅色模式",
+    "switchToDark": "切换至深色模式"
+  },
+  "boundary": {
+    "intro": "趣味娱乐测试 · 非官方经纪公司选拔或才艺水平鉴定。",
+    "result": "本结果仅反映本次12道题的选择倾向，并非官方角色分配或专业评级。",
+    "spectrum": "各柱形仅展示本次答题的相对得分分布，并非大众百分位排名。",
+    "tieRule": "若出现平局，将通过哈希算法公平确定结果，避免位置偏倚。"
+  },
+  "intro": {
+    "title": "K-POP 担当测试",
+    "subtitle": "如果出道，你在偶像团队里是什么角色？",
+    "meta1": "12道题",
+    "meta2": "约2分钟",
+    "meta3": "7种担当",
+    "startBtn": "立即测测我的担当 - 免费",
+    "previewLabel": "Q1.",
+    "previewQuestion": "和朋友去KTV时，你通常会？",
+    "microCopy": "约2分钟 · 即可生成分享卡片"
+  },
+  "loading": {
+    "text": "正在分析你的担当倾向…"
+  },
+  "result": {
+    "playfulHeading": "🎤 你的担当测试结果",
+    "spectrumHeading": "📊 各项担当匹配度",
+    "subtitle": "最契合你的K-POP偶像定位",
+    "descriptionTemplate": "根据你的选择，你在“{type}”角色中获得了最高契合度。",
+    "roleLabel": "K-POP 角色分析",
+    "shareBtn": "📤 分享结果",
+    "saveImageBtn": "📸 保存结果卡片",
+    "retryBtn": "🔄 再测一次",
+    "relatedTests": "🧪 推荐趣味测试"
+  },
+  "relatedTests": {
+    "animalPersonality": "动物性格测试",
+    "colorPersonality": "色彩性格测试",
+    "mbtiLove": "MBTI 恋爱契合度",
+    "rizzScore": "魅力指数测试",
+    "brainType": "脑型认知测试"
+  },
+  "share": {
+    "title": "分享你的测试结果",
+    "subtitle": "邀请好友比比看各自的偶像担当 🎤",
+    "nativeShare": "📤 系统分享",
+    "shareClose": "关闭",
+    "twitter": "𝕏 / Twitter",
+    "facebook": "Facebook",
+    "copyForKakao": "复制文案",
+    "copyLink": "复制链接",
+    "copied": "已复制到剪贴板！🎤",
+    "copyUnavailable": "当前环境不支持剪贴板复制。",
+    "shareUnavailable": "分享未完成或不支持。",
+    "compareWith": "🤝 和朋友一起比对结果",
+    "inviteText": "我的K-POP偶像担当是【{type}】！{emoji} 测测你的是什么 👇",
+    "or": "或"
+  },
+  "engage": {
+    "result1": "主唱 — 震撼高音与感染力表现",
+    "result2": "主舞 — 舞台齐舞中心与卡点掌控",
+    "result3": "门面 — 令人难忘的镜头焦点与视觉氛围",
+    "result4": "全能ACE — 唱跳Rap无短板的六边形战士"
+  },
+  "about": {
+    "toggle": "关于 K-POP 担当测试",
+    "heading1": "测试机制说明",
+    "text1": "测试包含12个生活情境问题，将选项权重对应计算为主唱、队长、Rapper、主舞、门面、忙内及全能ACE七种角色倾向。",
+    "tieRule": "平局时采用确定性算法平衡分配，保证测试一致性。",
+    "heading2": "关于测试含义",
+    "text2": "当代K-POP团队定位日益多元。本测试为娱乐性趣味测试，旨在发现个人特质与协作魅力。"
+  },
+  "guide": {
+    "guideToggle": "深入了解 K-POP 偶像团队架构",
+    "guideHeading": "现代 K-POP 偶像组合五大核心角色线",
+    "vocalRoleTitle": "声乐线 (主唱 Main Vocal & 领唱 Lead Vocal)",
+    "vocalRoleDesc": "负责主旋律与高音爆发点，是舞台开麦稳定度的基石。主唱撑起高潮，领唱串联起伏。",
+    "danceRoleTitle": "舞蹈线 (主舞 Main Dancer & 领舞 Lead Dancer)",
+    "danceRoleDesc": "掌控舞台整齐度与舞蹈Break的核心，以精准律动与视觉冲击力引燃舞台焦点。",
+    "rapRoleTitle": "说唱线 (主Rapper & 领Rapper)",
+    "rapRoleDesc": "把控歌曲节奏与情绪转折点，以独特音色和Flow为音乐注入强烈个性。",
+    "leaderCenterTitle": "领导核心与C位 (队长 Leader & C位 Center)",
+    "leaderCenterDesc": "队长凝聚团队心智并对外发声，C位则在副歌齐舞关键点直观展现团队概念特质。",
+    "allRounderTitle": "全能担当 (全能ACE All-Rounder)",
+    "allRounderDesc": "唱跳Rap表现均达高水准的六边形偶像，是四代及五代组合中备受青睐的核心力量。",
+    "editorialReview": "2026年10月审核 • DopaBrain 流行文化研究组"
+  },
+  "faq": {
+    "faqTitle": "常见问题 (FAQ)",
+    "q1": "K-POP 偶像团体的担当划分是固定的吗？",
+    "a1": "早期团体通常严格区分主唱、主舞等角色，但当今四代、五代团体越来越趋向于弱化绝对边界、全员全能的发展模式。",
+    "q2": "“主(Main)”与“领(Lead)”的区别是什么？",
+    "a2": "在K-POP术语中，Main（主）通常负责最难的技术部分（如高音狂飙、独舞），Lead（领）负责稳定引导段落与主歌桥接。",
+    "q3": "测试是如何计算出我的担当的？",
+    "a3": "通过KTV、团队分工、应对压力、穿搭喜好等12个实际场景，衡量你的表现风格并计算出对应分数最高者。",
+    "q4": "K-POP 中的“全能ACE”代表什么？",
+    "a4": "指同时兼具优秀唱功、舞感、Rap技巧与舞台镜头感的无短板艺人。",
+    "q5": "该测试能用于评估真实的练习生选拔潜力吗？",
+    "a5": "不能。这是一款以趣味互动为主的自我探索游戏，不代表任何官方经纪公司的面试评价。"
+  },
+  "accessibility": {
+    "questionAnnouncement": "问题 {current} / {total}: {question}",
+    "resultAnnouncement": "结果: {type}. {detail}"
+  },
+  "canvas": {
+    "topLabel": "我的 K-POP 偶像担当",
+    "boundary1": "基于12个情境问答的趣味分析",
+    "boundary2": "非官方评级或专业才艺测试",
+    "cta": "测测你的偶像角色 👇",
+    "hashtags": "#KPOP担当 #偶像测试 #DopaBrain"
+  },
+  "game": {
+    "back": "DopaBrain 首页"
+  }
+}

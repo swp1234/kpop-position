@@ -93,7 +93,7 @@ class I18n {
     constructor() {
         this.translations = { en: STATIC_EN_FALLBACK };
         this.networkLoaded = new Set();
-        this.supportedLanguages = ['ko', 'en'];
+        this.supportedLanguages = ['ko', 'en', 'zh', 'hi', 'ru', 'ja', 'es', 'pt', 'id', 'tr', 'de', 'fr'];
         this.languageRequestId = 0;
         this.currentLang = this.detectLanguage();
     }
@@ -107,8 +107,8 @@ class I18n {
 
     replaceLanguageQuery(lang) {
         const url = new URL(window.location.href);
-        if (lang === 'ko') url.searchParams.set('lang', 'ko');
-        else url.searchParams.delete('lang');
+        if (lang === 'en') url.searchParams.delete('lang');
+        else url.searchParams.set('lang', lang);
         window.history.replaceState(
             window.history.state,
             '',
@@ -187,7 +187,7 @@ class I18n {
     }
 
     updatePageMetadata() {
-        const canonicalUrl = `https://dopabrain.com/kpop-position/${this.currentLang === 'ko' ? '?lang=ko' : ''}`;
+        const canonicalUrl = 'https://dopabrain.com/kpop-position/';
         const setContent = (selector, value) => {
             const element = document.querySelector(selector);
             if (element) element.setAttribute('content', value);
@@ -199,7 +199,6 @@ class I18n {
         setContent('meta[property="og:description"]', this.t('app.ogDescription'));
         setContent('meta[property="og:url"]', canonicalUrl);
         setContent('meta[property="og:locale"]', this.currentLang === 'ko' ? 'ko_KR' : 'en_US');
-        setContent('meta[property="og:locale:alternate"]', this.currentLang === 'ko' ? 'en_US' : 'ko_KR');
         setContent('meta[name="twitter:title"]', this.t('app.title'));
         setContent('meta[name="twitter:description"]', this.t('app.ogDescription'));
         this.updateStructuredData(canonicalUrl);
@@ -250,8 +249,8 @@ class I18n {
     updateLocalizedLinks() {
         document.querySelectorAll('[data-preserve-lang]').forEach(link => {
             const url = new URL(link.getAttribute('href'), window.location.href);
-            if (this.currentLang === 'ko') url.searchParams.set('lang', 'ko');
-            else url.searchParams.delete('lang');
+            if (this.currentLang === 'en') url.searchParams.delete('lang');
+            else url.searchParams.set('lang', this.currentLang);
             link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
         });
     }
@@ -261,7 +260,11 @@ class I18n {
     }
 
     getLanguageName(lang) {
-        const names = { ko: '한국어', en: 'English' };
+        const names = {
+            ko: '한국어', en: 'English', zh: '中文', ja: '日本語',
+            es: 'Español', pt: 'Português', id: 'Bahasa Indonesia',
+            tr: 'Türkçe', de: 'Deutsch', fr: 'Français', hi: 'हिन्दी', ru: 'Русский'
+        };
         return names[lang] || lang;
     }
 }

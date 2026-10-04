@@ -342,7 +342,8 @@ function getShareText() {
     const title = inviteTemplate && inviteTemplate !== 'share.inviteText'
         ? inviteTemplate.replace('{type}', resultData.title).replace('{emoji}', resultData.emoji)
         : `My playful K-POP role label is ${resultData.titleEn} ${resultData.emoji}`;
-    const shareUrl = `https://dopabrain.com/kpop-position/${i18n.getCurrentLanguage() === 'ko' ? '?lang=ko' : ''}`;
+    const currentLang = typeof i18n !== 'undefined' ? i18n.getCurrentLanguage() : 'en';
+    const shareUrl = `https://dopabrain.com/kpop-position/${currentLang !== 'en' ? '?lang=' + currentLang : ''}`;
     const fullText = `${title}\n${i18n.t('boundary.result')}\n\n${shareUrl}`;
     return {
         title,
@@ -643,20 +644,6 @@ document.getElementById('btn-retry').addEventListener('click', () => {
 
 // 공유 버튼 초기화
 setupShareButtons();
-
-// GA4 engagement tracking (scroll + timer)
-(function() {
-    let scrollFired = false;
-    window.addEventListener('scroll', function() {
-        if (!scrollFired && window.scrollY > 100) {
-            scrollFired = true;
-            if (typeof gtag === 'function') gtag('event', 'scroll_engagement', { engagement_type: 'scroll' });
-        }
-    }, { passive: true });
-    setTimeout(function() {
-        if (typeof gtag === 'function') gtag('event', 'timer_engagement', { engagement_time_msec: 5000 });
-    }, 5000);
-})();
 
 // Service Worker
 if ('serviceWorker' in navigator) {

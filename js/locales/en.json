@@ -1,8 +1,8 @@
 {
   "app": {
-    "title": "K-POP Role Quiz - Playful 12-Question Test | DopaBrain",
-    "description": "Take a playful 12-question K-POP role quiz and compare your answer scores across seven role labels. For entertainment only; not an official role, personality test, or talent assessment.",
-    "ogDescription": "A just-for-fun K-POP role result based on your 12 answers. Role labels vary and this is not an official or talent assessment.",
+    "title": "K-POP Role Quiz - What's Your Idol Position? | DopaBrain",
+    "description": "Take this fun 12-question quiz to discover your K-POP group position: Main Vocal, Main Dancer, Main Rapper, Leader, Visual, Maknae, or All-Rounder.",
+    "ogDescription": "If you debuted in a K-POP idol group, what role would you play? Find your best matching position with 12 relatable scenarios.",
     "skipLink": "Skip to main content",
     "loading": "Loading…",
     "changeLanguage": "Change language",
@@ -11,45 +11,46 @@
     "switchToDark": "Switch to dark theme"
   },
   "boundary": {
-    "intro": "Playful entertainment quiz · not an official role, personality test, or talent assessment.",
-    "result": "This result describes only the answer pattern in this attempt. It is not an official K-POP role or a personality or talent assessment.",
-    "spectrum": "These bars compare only your 12 answers. They are relative scores, not population percentiles.",
-    "tieRule": "If labels tie, a deterministic hash of this attempt's answer sequence chooses among only the tied labels. The same answers produce the same result, and the first label is not automatically favored."
+    "intro": "Playful entertainment quiz · not an official agency casting or talent evaluation.",
+    "result": "This result reflects your 12 answer choices in this session. It is not an official K-POP role assignment or talent test.",
+    "spectrum": "These bars show the relative distribution of your 12 answers, not general population percentiles.",
+    "tieRule": "Ties are resolved fairly via a deterministic answer hash to prevent position bias."
   },
   "intro": {
     "title": "K-POP Role Quiz",
-    "subtitle": "Which K-POP-inspired role label will your answers score highest?",
+    "subtitle": "Which K-POP idol position fits your vibe best?",
     "meta1": "12 Questions",
     "meta2": "About 2 min",
-    "meta3": "7 Role Labels",
-    "startBtn": "Start the Quiz",
+    "meta3": "7 Positions",
+    "startBtn": "Find My Position - Free",
     "previewLabel": "Q1.",
     "previewQuestion": "When you go to karaoke with friends, what do you do?",
     "microCopy": "About 2 min · Instant shareable result"
   },
   "loading": {
-    "text": "Comparing your answer scores…"
+    "text": "Analyzing your position scores…"
   },
   "result": {
-    "playfulHeading": "🎤 Playful result",
-    "spectrumHeading": "📊 Answer score spectrum",
-    "subtitle": "Playful answer-pattern match",
-    "descriptionTemplate": "Your choices gave the highest total to the “{type}” label in this quiz.",
-    "roleLabel": "K-POP-inspired score label",
+    "playfulHeading": "🎤 Your K-POP Role Result",
+    "spectrumHeading": "📊 Position Compatibility Spectrum",
+    "subtitle": "Your best matching idol position",
+    "descriptionTemplate": "Your choices gave the highest score to the “{type}” position in this quiz.",
+    "roleLabel": "K-POP Role Analysis",
     "shareBtn": "📤 Share Result",
-    "saveImageBtn": "📸 Save Image",
+    "saveImageBtn": "📸 Save Result Card",
     "retryBtn": "🔄 Try Again",
-    "relatedTests": "🧪 Try These Tests Too"
+    "relatedTests": "🧪 Recommended Quizzes"
   },
   "relatedTests": {
     "animalPersonality": "Animal Personality",
     "colorPersonality": "Color Personality",
     "mbtiLove": "MBTI Love Match",
-    "rizzScore": "Rizz Score Test"
+    "rizzScore": "Rizz Score Test",
+    "brainType": "Brain Type Cognitive Quiz"
   },
   "share": {
-    "title": "Share Your Playful Result",
-    "subtitle": "Invite a friend to compare answer-score patterns 🎤",
+    "title": "Share Your Result",
+    "subtitle": "Compare your K-POP position with friends 🎤",
     "nativeShare": "📤 Share from this device",
     "shareClose": "Close share dialog",
     "twitter": "𝕏 / Twitter",
@@ -57,36 +58,64 @@
     "copyForKakao": "Copy for KakaoTalk",
     "copyLink": "Copy Link",
     "copied": "Copied to clipboard! 🎤",
-    "copyUnavailable": "Clipboard access is unavailable. No link was copied.",
-    "shareUnavailable": "Sharing did not complete or is unavailable. Nothing was shared.",
-    "compareWith": "🤝 Compare this just-for-fun result with a friend",
-    "inviteText": "My playful K-POP role label is {type}! {emoji} Try the quiz too 👇",
+    "copyUnavailable": "Clipboard access is unavailable.",
+    "shareUnavailable": "Sharing cancelled or unavailable.",
+    "compareWith": "🤝 Compare results with friends",
+    "inviteText": "My K-POP idol role is {type}! {emoji} Find yours too 👇",
     "or": "or"
   },
   "engage": {
-    "result1": "Main Vocal — vocal-role score",
-    "result2": "Main Dancer — dance-role score",
-    "result3": "Visual — styling-role score",
-    "result4": "All-Rounder — versatility score"
+    "result1": "Main Vocal — High-note power and emotional delivery",
+    "result2": "Main Dancer — Center of synchronized stage choreography",
+    "result3": "Visual — Unforgettable aura and photogenic presence",
+    "result4": "All-Rounder — Complete mastery across vocal, rap, and dance"
   },
   "about": {
     "toggle": "About the K-POP Role Quiz",
-    "heading1": "How this playful quiz works",
-    "text1": "Each of the 12 answers adds points to seven K-POP-inspired role labels. The result shows the label with the highest total and a relative score spectrum for this attempt.",
-    "tieRule": "If labels tie, a deterministic hash of this attempt's answer sequence chooses among only the tied labels. Repeating the same answers gives the same result, and the first label is not automatically favored.",
-    "heading2": "What this result does not mean",
-    "text2": "Role labels vary across groups and eras. This game does not test singing, dancing, appearance, age, personality, or professional potential. Results are not official member positions and DopaBrain is not affiliated with any artist or agency."
+    "heading1": "How this quiz works",
+    "text1": "Each of the 12 scenarios adds weighted points toward seven archetypal K-POP positions: Vocal, Leader, Rapper, Dancer, Visual, Maknae, and All-Rounder.",
+    "tieRule": "Ties are resolved deterministically using an answer sequence hash to avoid favoring early options.",
+    "heading2": "What this result means",
+    "text2": "Real K-POP group dynamics evolve across generations. This game is an entertaining reflection designed to celebrate group teamwork and individuality."
+  },
+  "guide": {
+    "guideToggle": "Understanding K-pop Group Position Structure",
+    "guideHeading": "The Five Core Role Pillars in Modern K-Pop",
+    "vocalRoleTitle": "Vocal Line (Main Vocal & Lead Vocal)",
+    "vocalRoleDesc": "Responsible for melody delivery, high-note peaks, and vocal stability in live stages. Main Vocals anchor challenging climaxes, while Lead Vocals guide verses and transitions.",
+    "danceRoleTitle": "Dance Line (Main Dancer & Lead Dancer)",
+    "danceRoleDesc": "Defines the sharpness of group synchronization and commands dance breaks. Main Dancers bring technical prowess and rhythm leadership to visually anchor the stage.",
+    "rapRoleTitle": "Rap Line (Main Rapper & Lead Rapper)",
+    "rapRoleDesc": "Shapes rhythmic pace and dynamic transitions with distinctive flow, attitude, and diction, infusing tracks with genre authenticity.",
+    "leaderCenterTitle": "Leadership & Center (Leader & Center)",
+    "leaderCenterDesc": "The Leader fosters team unity, media presence, and emotional support, while the Center visually symbolizes the core concept during key choruses.",
+    "allRounderTitle": "All-Rounder & Ace (All-Rounder)",
+    "allRounderDesc": "A multi-faceted talent capable of singing, rapping, dancing, and commanding center stage without weakness—increasingly standard in 4th/5th generation groups.",
+    "editorialReview": "October 2026 Review • DopaBrain K-Culture & Music Editorial Team"
+  },
+  "faq": {
+    "faqTitle": "Frequently Asked Questions (FAQ)",
+    "q1": "Are K-pop idol positions official across all groups?",
+    "a1": "While 2nd and 3rd generation groups traditionally defined clear Main and Lead titles, many 4th and 5th generation groups favor fluid, all-rounder structures without fixed positions.",
+    "q2": "What is the difference between 'Main' and 'Lead' roles?",
+    "a2": "In K-pop terminology, 'Main' roles handle the most demanding technical moments (high notes, dance breaks), while 'Lead' roles guide song verses and support the melody.",
+    "q3": "How does this test calculate my position?",
+    "a3": "It assesses 12 everyday and performance scenarios (karaoke, project leadership, stress release, aesthetic taste) to match your strengths with one of seven archetypes.",
+    "q4": "What does 'All-Rounder' or 'Ace' mean in K-pop?",
+    "a4": "An All-Rounder possesses high-level proficiency across vocals, dance, rap, and stage presence, allowing seamless transitions into any role.",
+    "q5": "Does this quiz assess actual audition readiness or singing talent?",
+    "a5": "No. This is an entertaining personality reflection created for fun and self-discovery. It is not an audition rating or talent test."
   },
   "accessibility": {
     "questionAnnouncement": "Question {current} of {total}: {question}",
     "resultAnnouncement": "Result: {type}. {detail}"
   },
   "canvas": {
-    "topLabel": "MY PLAYFUL K-POP ROLE LABEL",
-    "boundary1": "Based only on this attempt's 12 answer scores",
-    "boundary2": "Not an official role, personality test, or talent assessment",
-    "cta": "Try the playful role quiz 👇",
-    "hashtags": "#KPOPRoleQuiz #JustForFun"
+    "topLabel": "MY K-POP IDOL POSITION",
+    "boundary1": "Based on 12 situational answer scores",
+    "boundary2": "Not an official agency casting or talent evaluation",
+    "cta": "Find your idol position 👇",
+    "hashtags": "#KPOPRole #IdolQuiz #DopaBrain"
   },
   "game": {
     "back": "DopaBrain Home"
