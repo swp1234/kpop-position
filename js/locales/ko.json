@@ -46,7 +46,10 @@
     "colorPersonality": "색깔 성격 테스트",
     "mbtiLove": "MBTI 연애 궁합",
     "rizzScore": "플러팅 력(Rizz) 측정",
-    "brainType": "뇌 유형 인지 테스트"
+    "brainType": "뇌 유형 인지 테스트",
+    "stressCheck": "스트레스 체크",
+    "attachmentStyle": "애착유형 테스트",
+    "futureSelf": "미래의 나 테스트"
   },
   "share": {
     "title": "결과 공유하기",

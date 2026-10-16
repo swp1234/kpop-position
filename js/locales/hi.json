@@ -46,7 +46,10 @@
     "colorPersonality": "Color Personality",
     "mbtiLove": "MBTI Love Match",
     "rizzScore": "Rizz Score Test",
-    "brainType": "Brain Type Cognitive Quiz"
+    "brainType": "Brain Type Cognitive Quiz",
+    "stressCheck": "तनाव जांच",
+    "attachmentStyle": "लगाव शैली परीक्षण",
+    "futureSelf": "भविष्य का मैं"
   },
   "share": {
     "title": "Share Your Result",

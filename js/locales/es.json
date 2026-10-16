@@ -46,7 +46,10 @@
     "colorPersonality": "Color Personality",
     "mbtiLove": "MBTI Love Match",
     "rizzScore": "Rizz Score Test",
-    "brainType": "Brain Type Cognitive Quiz"
+    "brainType": "Brain Type Cognitive Quiz",
+    "stressCheck": "Test de Estrés",
+    "attachmentStyle": "Estilo de Apego",
+    "futureSelf": "Yo del Futuro"
   },
   "share": {
     "title": "Share Your Result",

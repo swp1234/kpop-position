@@ -47,7 +47,10 @@
     "colorPersonality": "色彩性格测试",
     "mbtiLove": "MBTI 恋爱契合度",
     "rizzScore": "魅力指数测试",
-    "brainType": "脑型认知测试"
+    "brainType": "脑型认知测试",
+    "stressCheck": "压力自测",
+    "attachmentStyle": "依恋类型测试",
+    "futureSelf": "未来的你测试"
   },
   "share": {
     "title": "分享你的测试结果",

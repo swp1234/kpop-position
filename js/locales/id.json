@@ -46,7 +46,10 @@
     "colorPersonality": "Color Personality",
     "mbtiLove": "MBTI Love Match",
     "rizzScore": "Rizz Score Test",
-    "brainType": "Brain Type Cognitive Quiz"
+    "brainType": "Brain Type Cognitive Quiz",
+    "stressCheck": "Cek Stres",
+    "attachmentStyle": "Gaya Kelekatan",
+    "futureSelf": "Diri Masa Depan"
   },
   "share": {
     "title": "Share Your Result",

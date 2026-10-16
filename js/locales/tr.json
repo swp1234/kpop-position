@@ -46,7 +46,10 @@
     "colorPersonality": "Color Personality",
     "mbtiLove": "MBTI Love Match",
     "rizzScore": "Rizz Score Test",
-    "brainType": "Brain Type Cognitive Quiz"
+    "brainType": "Brain Type Cognitive Quiz",
+    "stressCheck": "Stres Testi",
+    "attachmentStyle": "Bağlanma Stili",
+    "futureSelf": "Gelecekteki Ben"
   },
   "share": {
     "title": "Share Your Result",

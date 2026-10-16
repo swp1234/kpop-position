@@ -47,7 +47,10 @@
     "colorPersonality": "カラー性格診断",
     "mbtiLove": "MBTI 恋愛相性",
     "rizzScore": "魅力・モテ度テスト",
-    "brainType": "脳タイプ認知テスト"
+    "brainType": "脳タイプ認知テスト",
+    "stressCheck": "ストレスチェック",
+    "attachmentStyle": "愛着スタイル診断",
+    "futureSelf": "未来の自分診断"
   },
   "share": {
     "title": "診断結果をシェア",
