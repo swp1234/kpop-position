@@ -249,8 +249,7 @@ class I18n {
     updateLocalizedLinks() {
         document.querySelectorAll('[data-preserve-lang]').forEach(link => {
             const url = new URL(link.getAttribute('href'), window.location.href);
-            if (this.currentLang === 'en') url.searchParams.delete('lang');
-            else url.searchParams.set('lang', this.currentLang);
+            url.searchParams.set('lang', this.currentLang);
             link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
         });
     }
