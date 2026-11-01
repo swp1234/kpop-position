@@ -50,7 +50,8 @@
     "brainType": "脳タイプ認知テスト",
     "stressCheck": "ストレスチェック",
     "attachmentStyle": "愛着スタイル診断",
-    "futureSelf": "未来の自分診断"
+    "futureSelf": "未来の自分診断",
+    "roleRoster": "K-popグループ役割ロスター"
   },
   "share": {
     "title": "診断結果をシェア",

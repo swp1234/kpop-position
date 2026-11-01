@@ -645,6 +645,17 @@ document.getElementById('btn-retry').addEventListener('click', () => {
 // 공유 버튼 초기화
 setupShareButtons();
 
+// 관련 테스트 및 백링크 클릭 추적
+document.querySelectorAll('.related-test-card, .back-link').forEach(link => {
+    link.addEventListener('click', () => {
+        trackEvent('content_cta_click', {
+            event_category: 'engagement',
+            page_path: location.pathname,
+            target_url: link.href
+        });
+    });
+});
+
 // Service Worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => {});

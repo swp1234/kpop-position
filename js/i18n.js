@@ -250,6 +250,7 @@ class I18n {
         document.querySelectorAll('[data-preserve-lang]').forEach(link => {
             const url = new URL(link.getAttribute('href'), window.location.href);
             url.searchParams.set('lang', this.currentLang);
+            url.searchParams.set('source', 'kpop_position');
             link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
         });
     }

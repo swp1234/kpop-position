@@ -50,7 +50,8 @@
     "brainType": "脑型认知测试",
     "stressCheck": "压力自测",
     "attachmentStyle": "依恋类型测试",
-    "futureSelf": "未来的你测试"
+    "futureSelf": "未来的你测试",
+    "roleRoster": "K-pop组合定位阵容规划器"
   },
   "share": {
     "title": "分享你的测试结果",
