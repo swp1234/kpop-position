@@ -96,6 +96,7 @@ function updateThemeButton() {
             opt.addEventListener('click', async () => {
                 await i18n.setLanguage(opt.getAttribute('data-lang'));
                 setLanguageMenuOpen(false);
+                syncLocalizedLinks();
                 langToggle?.focus();
             });
         });
@@ -107,6 +108,7 @@ function updateThemeButton() {
             loader.classList.add('hidden');
             setTimeout(() => loader.remove(), 300);
         }
+        syncLocalizedLinks();
         if (autoStartRequested) {
             setTimeout(() => startTest('auto_start'), 350);
         }
@@ -278,6 +280,7 @@ function showResult() {
     });
 
     renderResultContent(totals);
+    syncLocalizedLinks();
     trackEvent('test_complete', { event_label: resultData.titleEn });
 }
 
@@ -645,16 +648,34 @@ document.getElementById('btn-retry').addEventListener('click', () => {
 // 공유 버튼 초기화
 setupShareButtons();
 
-// 관련 테스트 및 백링크 클릭 추적
-document.querySelectorAll('.related-test-card, .back-link').forEach(link => {
-    link.addEventListener('click', () => {
-        trackEvent('content_cta_click', {
-            event_category: 'engagement',
-            page_path: location.pathname,
-            target_url: link.href
-        });
+// 관련 테스트 및 백링크 동적 로케일 보존 및 전환 추적
+function syncLocalizedLinks() {
+    const lang = (window.i18n && window.i18n.currentLang) || (new URLSearchParams(window.location.search).get('lang')) || 'ko';
+    document.querySelectorAll('.related-test-card, .back-link, [data-preserve-lang]').forEach(link => {
+        try {
+            const u = new URL(link.getAttribute('href'), window.location.origin);
+            u.searchParams.set('lang', lang);
+            u.searchParams.set('source', 'kpop_position_result');
+            link.href = u.pathname + u.search;
+        } catch (_) {}
+
+        if (!link.dataset.trackedCta) {
+            link.dataset.trackedCta = 'true';
+            link.addEventListener('click', () => {
+                trackEvent('content_cta_click', {
+                    event_category: 'engagement',
+                    cta_surface: 'kpop_position_related',
+                    destination: link.getAttribute('href'),
+                    source: 'kpop_position_result',
+                    lang: lang,
+                    page_path: location.pathname,
+                    target_url: link.href
+                });
+            });
+        }
     });
-});
+}
+syncLocalizedLinks();
 
 // Service Worker
 if ('serviceWorker' in navigator) {
