@@ -124,5 +124,16 @@
   },
   "game": {
     "back": "DopaBrain ホーム"
+  },
+  "curated": {
+    "kicker": "厳選リーディング",
+    "title": "K-POPの舞台裏を深掘りする一冊",
+    "subtitle": "トレーニング文化やプロデュースの裏側を描く注目作。",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "ユニ・ホン · Kカルチャー史",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "ステファン・リー · アイドル成長物語",
+    "cta": "書籍を見る",
+    "disclosure": "一部の外部書店リンクには追加費用なしのアフィリエイトが含まれる場合があります。"
   }
 }

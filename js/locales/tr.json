@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "ÖNERİLEN OKUMALAR",
+    "title": "K-Pop Sahne Arkasını Keşfet",
+    "subtitle": "Stajyer kültürü, yaratıcı yönetim ve küresel hayranlık üzerine öne çıkan kitaplar.",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · K-Kültür Tarihi",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · İdol Stajyer Hikayesi",
+    "cta": "Kitabı Gör",
+    "disclosure": "Bazı harici kitap bağlantıları size ek maliyet çıkarmadan küçük bir satış ortaklığı komisyonu kazandırabilir."
   }
 }

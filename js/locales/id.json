@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "BACAAN PILIHAN",
+    "title": "Selami Dunia Kreatif K-Pop",
+    "subtitle": "Kisah di balik panggung tentang budaya trainee, koreografi, dan fandom global.",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · Sejarah Budaya K",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · Kisah Dunia Trainee",
+    "cta": "Lihat Buku",
+    "disclosure": "Beberapa tautan toko buku eksternal dapat menghasilkan komisi afiliasi kecil tanpa biaya tambahan."
   }
 }

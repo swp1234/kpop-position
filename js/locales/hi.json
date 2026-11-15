@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "चयनित पुस्तकें",
+    "title": "K-Pop कला और संस्कृति को गहराई से जानें",
+    "subtitle": "ट्रेनी कल्चर, परफॉर्मेंस निर्माण और वैश्विक फ़ैंडम पर आधारित चर्चित पुस्तकें।",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · K-संस्कृति इतिहास",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · आइडल प्रशिक्षण कथा",
+    "cta": "पुस्तक देखें",
+    "disclosure": "कुछ बाहरी बुकस्टोर लिंक से बिना अतिरिक्त लागत के संबद्ध कमीशन प्राप्त हो सकता है।"
   }
 }

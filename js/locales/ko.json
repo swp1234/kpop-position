@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain 홈"
+  },
+  "curated": {
+    "kicker": "추천 도서",
+    "title": "K-POP 무대와 제작의 뒷이야기",
+    "subtitle": "K-컬처의 성장과 연습생·퍼포먼스 문화를 깊이 탐구한 도서입니다.",
+    "book1Title": "더 버쓰 오브 코리안 쿨 (The Birth of Korean Cool)",
+    "book1Author": "홍유니 · K-컬처 산업사",
+    "book2Title": "K-Pop 컨피덴셜 (K-Pop Confidential)",
+    "book2Author": "스테판 리 · K-POP 데뷔 스토리",
+    "cta": "도서 보기",
+    "disclosure": "일부 외부 서점 링크를 통해 구매 시 추가 비용 없이 소정의 수수료가 발생할 수 있습니다."
   }
 }

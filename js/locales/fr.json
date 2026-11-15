@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "LECTURES CHOISIES",
+    "title": "Plongez dans les coulisses de la K-Pop",
+    "subtitle": "Récits sur la culture trainee, la direction artistique et le fandom mondial.",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · Histoire de la K-Culture",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · Récit de formation idol",
+    "cta": "Voir le livre",
+    "disclosure": "Certains liens externes vers des librairies peuvent générer une petite commission sans surcoût."
   }
 }

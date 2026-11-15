@@ -118,6 +118,7 @@ function updateThemeButton() {
 window.addEventListener('dopabrain:languagechange', event => {
     applyQuizLanguage(event.detail?.lang || 'en');
     updateThemeButton();
+    syncLocalizedLinks();
     if (questionScreen.classList.contains('active') && !answerPending) {
         showQuestion({ focusQuestion: false });
     }
@@ -651,6 +652,47 @@ setupShareButtons();
 // 관련 테스트 및 백링크 동적 로케일 보존 및 전환 추적
 function syncLocalizedLinks() {
     const lang = (window.i18n && window.i18n.currentLang) || (new URLSearchParams(window.location.search).get('lang')) || 'ko';
+    const amzDomains = {
+        en: 'www.amazon.com',
+        ja: 'www.amazon.co.jp',
+        es: 'www.amazon.es',
+        fr: 'www.amazon.fr',
+        de: 'www.amazon.de',
+        pt: 'www.amazon.com.br'
+    };
+    const tag = 'dopabrain-' + '20';
+    document.querySelectorAll('.curated-resource-item').forEach(link => {
+        const asin = link.getAttribute('data-asin');
+        const koQuery = link.getAttribute('data-ko-query');
+        if (lang === 'ko' && koQuery) {
+            link.href = 'https://search.kyobobook.co.kr/search?keyword=' + encodeURIComponent(koQuery);
+        } else if (asin) {
+            const domain = amzDomains[lang] || 'www.amazon.com';
+            link.href = 'https://' + domain + '/dp/' + asin + '?tag=' + tag;
+        }
+        if (!link.dataset.trackedCta) {
+            link.dataset.trackedCta = 'true';
+            link.addEventListener('click', () => {
+                const resourceId = link.getAttribute('data-resource-id') || 'unknown';
+                trackEvent('curated_resource_click', {
+                    event_category: 'monetization',
+                    app_name: 'kpop-position',
+                    resource_id: resourceId,
+                    content_locale: lang,
+                    target_url: link.href
+                });
+                trackEvent('content_cta_click', {
+                    event_category: 'engagement',
+                    cta_surface: 'kpop_position_curated',
+                    destination: link.href,
+                    source: 'kpop_position_result',
+                    lang: lang,
+                    page_path: location.pathname,
+                    target_url: link.href
+                });
+            });
+        }
+    });
     document.querySelectorAll('.related-test-card, .back-link, [data-preserve-lang]').forEach(link => {
         try {
             const u = new URL(link.getAttribute('href'), window.location.origin);

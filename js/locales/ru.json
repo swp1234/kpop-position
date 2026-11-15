@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "РЕКОМЕНДУЕМЫЕ КНИГИ",
+    "title": "Мир K-Pop изнутри",
+    "subtitle": "Книги о становлении корейской поп-индустрии, трейни и сценическом мастерстве.",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · История K-культуры",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · История дебюта",
+    "cta": "Книга",
+    "disclosure": "Некоторые внешние ссылки на книжные магазины могут приносить партнёрскую комиссию без доплат для вас."
   }
 }

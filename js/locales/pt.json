@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "LEITURA RECOMENDADA",
+    "title": "Explore os bastidores do K-Pop",
+    "subtitle": "Histórias sobre cultura trainee, direção criativa e fandom global.",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · História da cultura K",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · História do mundo idol",
+    "cta": "Ver livro",
+    "disclosure": "Alguns links externos de livrarias podem gerar pequena comissão de afiliado sem custo extra."
   }
 }

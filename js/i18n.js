@@ -86,7 +86,18 @@ const STATIC_EN_FALLBACK = {
         cta: 'Try the playful role quiz 👇',
         hashtags: '#KPOPRoleQuiz #JustForFun'
     },
-    game: { back: 'DopaBrain Home' }
+    game: { back: 'DopaBrain Home' },
+    curated: {
+        kicker: 'CURATED READING',
+        title: 'Dive Deeper Into K-Pop Craft',
+        subtitle: 'Behind-the-scenes stories of trainee culture, creative direction, and global fandom.',
+        book1Title: 'The Birth of Korean Cool',
+        book1Author: 'Euny Hong · K-Culture History',
+        book2Title: 'K-Pop Confidential',
+        book2Author: 'Stephan Lee · Idol Training Story',
+        cta: 'View Book',
+        disclosure: 'Some outbound bookstore links may earn a small affiliate commission at no extra cost to you.'
+    }
 };
 
 class I18n {

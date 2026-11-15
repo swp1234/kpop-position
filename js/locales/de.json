@@ -123,5 +123,16 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "curated": {
+    "kicker": "KURATIERTE LEKTÜRE",
+    "title": "Mehr über K-Pop-Kultur entdecken",
+    "subtitle": "Hintergründe zur Trainee-Kultur, kreativen Regie und dem globalen Fandom.",
+    "book1Title": "The Birth of Korean Cool",
+    "book1Author": "Euny Hong · K-Culture-Geschichte",
+    "book2Title": "K-Pop Confidential",
+    "book2Author": "Stephan Lee · Idol-Trainee-Story",
+    "cta": "Buch ansehen",
+    "disclosure": "Einige externe Buch-Links enthalten möglicherweise Affiliate-Links ohne Mehrkosten für dich."
   }
 }

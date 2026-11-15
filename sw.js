@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kpop-position-v6';
+const CACHE_NAME = 'kpop-position-v7';
 const ASSETS = [
     './',
     './index.html',
