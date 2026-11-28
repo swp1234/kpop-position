@@ -11,7 +11,7 @@
     --border: rgba(255,255,255,0.08);
     --text: #f0f0f5;
     --text-sec: #a0a0b8;
-    --text-dim: #5a5a70;
+    --text-dim: #9292b2;
     --result-color: #ff2d78;
 }
 
@@ -840,14 +840,15 @@ main:focus { outline: none; }
 }
 /* === FOOTER === */
 .game-footer { text-align: center; padding: 20px 0; margin-top: 20px; }
-.back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; padding: 12px 0; transition: color 0.2s; }
-.back-link:hover { color: rgba(255,255,255,0.7); }
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.74); text-decoration: none; font-size: 13px; padding: 12px 0; transition: color 0.2s; }
+.back-link:hover { color: #ffffff; }
 
 /* === Accessibility Improvements === */
 button:focus-visible,a:focus-visible,input:focus-visible,[role="button"]:focus-visible{outline:3px solid #ff6ba0;outline-offset:2px;}
 button,a[href],input[type="button"],input[type="submit"],[role="button"]{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
-.skip-link{position:absolute;top:-100px;left:8px;background:#ff6ba0;color:white;padding:8px 12px;text-decoration:none;z-index:10001;}
-.skip-link:focus{top:8px;}
+.skip-link{position:absolute;top:-999px;left:12px;background:#be185d;color:#ffffff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;z-index:10001;}
+.skip-link:focus{top:12px;}
+:lang(ko) h1,:lang(ko) h2,:lang(ko) p{word-break:keep-all;overflow-wrap:break-word;}
 [role="dialog"]{z-index:1000;}
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}
 @media (prefers-contrast: more){button{border:2px solid #ff6ba0;}}
@@ -1212,8 +1213,8 @@ select:focus-visible {
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
-    top: 12px;
-    right: 56px;
+    top: 20px;
+    right: 74px;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
